@@ -104,7 +104,7 @@ namespace MAD
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FormInicio(), sender);
+            OpenChildForm(new Forms.FormVentas(), sender);
         }
 
         private void iconButton2_Click(object sender, EventArgs e)

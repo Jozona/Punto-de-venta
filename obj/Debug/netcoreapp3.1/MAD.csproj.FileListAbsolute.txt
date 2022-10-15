@@ -18,3 +18,25 @@ C:\Users\forag\source\repos\MAD\obj\Debug\netcoreapp3.1\MAD.pdb
 C:\Users\forag\source\repos\MAD\obj\Debug\netcoreapp3.1\MAD.genruntimeconfig.cache
 C:\Users\forag\source\repos\MAD\obj\Debug\netcoreapp3.1\MAD.Forms.FormInicio.resources
 C:\Users\forag\source\repos\MAD\obj\Debug\netcoreapp3.1\MAD.Forms.FormReportes.resources
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.exe
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.deps.json
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.runtimeconfig.json
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.runtimeconfig.dev.json
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.dll
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.pdb
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\bin\Debug\netcoreapp3.1\FontAwesome.Sharp.dll
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.csproj.AssemblyReference.cache
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Form1.resources
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Forms.FormReportes.resources
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.inicioCaja.resources
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.csproj.GenerateResource.cache
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.GeneratedMSBuildEditorConfig.editorconfig
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.AssemblyInfoInputs.cache
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.AssemblyInfo.cs
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.csproj.CoreCompileInputs.cache
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.csproj.CopyComplete
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.dll
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.pdb
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.genruntimeconfig.cache
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Forms.FormVentas.resources
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Forms.Pago.resources

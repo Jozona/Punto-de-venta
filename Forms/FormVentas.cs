@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace MAD.Forms
 {
-    public partial class FormInicio : Form
+    public partial class FormVentas : Form
     {
-        public FormInicio()
+        public FormVentas()
         {
             InitializeComponent();
         }
@@ -30,6 +30,16 @@ namespace MAD.Forms
         private void FormInicio_Load(object sender, EventArgs e)
         {
             LoadTheme();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

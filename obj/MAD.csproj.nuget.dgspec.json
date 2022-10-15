@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\forag\\source\\repos\\MAD\\MAD.csproj": {}
+    "D:\\FCFM\\7to Semestre\\MAD\\Punto-de-venta\\MAD.csproj": {}
   },
   "projects": {
-    "C:\\Users\\forag\\source\\repos\\MAD\\MAD.csproj": {
+    "D:\\FCFM\\7to Semestre\\MAD\\Punto-de-venta\\MAD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\forag\\source\\repos\\MAD\\MAD.csproj",
+        "projectUniqueName": "D:\\FCFM\\7to Semestre\\MAD\\Punto-de-venta\\MAD.csproj",
         "projectName": "MAD",
-        "projectPath": "C:\\Users\\forag\\source\\repos\\MAD\\MAD.csproj",
-        "packagesPath": "C:\\Users\\forag\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\forag\\source\\repos\\MAD\\obj\\",
+        "projectPath": "D:\\FCFM\\7to Semestre\\MAD\\Punto-de-venta\\MAD.csproj",
+        "packagesPath": "C:\\Users\\Jahir\\.nuget\\packages\\",
+        "outputPath": "D:\\FCFM\\7to Semestre\\MAD\\Punto-de-venta\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\forag\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jahir\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -67,7 +67,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
         }
       }
     }

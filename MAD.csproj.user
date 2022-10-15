@@ -4,10 +4,13 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\FormInicio.cs">
+    <Compile Update="Forms\FormVentas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\FormReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Pago.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="inicioCaja.cs">
