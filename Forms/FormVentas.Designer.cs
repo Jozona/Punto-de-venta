@@ -189,7 +189,7 @@ namespace MAD.Forms
             this.Descuento});
             this.dataGridView1.Location = new System.Drawing.Point(6, 257);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(546, 249);
+            this.dataGridView1.Size = new System.Drawing.Size(543, 249);
             this.dataGridView1.TabIndex = 61;
             // 
             // Codigo

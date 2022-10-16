@@ -40,3 +40,7 @@ D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.pdb
 D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.genruntimeconfig.cache
 D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Forms.FormVentas.resources
 D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Forms.Pago.resources
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormCajas.resources
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormCajero.resources
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormDepartamento.resources
+D:\FCFM\7to Semestre\MAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormProducto.resources

@@ -10,4 +10,16 @@
     <PackageReference Include="FontAwesome.Sharp" Version="6.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="FormsAdmin\FormCajas - Copia.Designer.cs">
+      <DependentUpon>FormCajas.Designer.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="FormsAdmin\FormCajas - Copia.resx">
+      <DependentUpon>FormCajas.resx</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
