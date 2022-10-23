@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\forag\\source\\repos\\MAD\\MAD.csproj": {}
+    "D:\\UANL 7mo\\MAD\\Segunda entrega\\MAD\\MAD.csproj": {}
   },
   "projects": {
-    "C:\\Users\\forag\\source\\repos\\MAD\\MAD.csproj": {
+    "D:\\UANL 7mo\\MAD\\Segunda entrega\\MAD\\MAD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\forag\\source\\repos\\MAD\\MAD.csproj",
+        "projectUniqueName": "D:\\UANL 7mo\\MAD\\Segunda entrega\\MAD\\MAD.csproj",
         "projectName": "MAD",
-        "projectPath": "C:\\Users\\forag\\source\\repos\\MAD\\MAD.csproj",
+        "projectPath": "D:\\UANL 7mo\\MAD\\Segunda entrega\\MAD\\MAD.csproj",
         "packagesPath": "C:\\Users\\forag\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\forag\\source\\repos\\MAD\\obj\\",
+        "outputPath": "D:\\UANL 7mo\\MAD\\Segunda entrega\\MAD\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -47,6 +47,10 @@
             "FontAwesome.Sharp": {
               "target": "Package",
               "version": "[6.1.1, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.4, )"
             }
           },
           "imports": [

@@ -4,13 +4,46 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\FormInicio.cs">
+    <Compile Update="FormsAdmin\FormCajas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormsAdmin\FormCajero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormsAdmin\FormConsultaRecibos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormsAdmin\FormDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormsAdmin\FormDevolucion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormsAdmin\FormInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormsAdmin\FormProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormsAdmin\FormReporteCajero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormsAdmin\FormReporteVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FormVentas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\FormReportes.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Pago.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="inicioCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="login.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

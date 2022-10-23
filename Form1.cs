@@ -13,7 +13,7 @@ namespace MAD
 {
     public partial class Form1 : Form
     {
-
+        int type = 0;
         //Datos
         private Button currentButton;
         private Random random;
@@ -104,7 +104,7 @@ namespace MAD
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FormInicio(), sender);
+            OpenChildForm(new Forms.FormVentas(), sender);
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
@@ -166,6 +166,80 @@ namespace MAD
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+            if (login.user == 0)
+            {
+                iconButton1.Visible = false;
+                iconButton2.Visible = false;
+
+            }
+            else if(login.user == 1) {
+                iconButton3.Visible = false;
+                iconButton4.Visible = false;
+                iconButton5.Visible = false;
+                iconButton7.Visible = false;
+                iconButton8.Visible = false;
+                iconButton9.Visible = false;
+                iconButton10.Visible = false;
+                iconButton11.Visible = false;
+                iconButton12.Visible = false;
+                iconButton13.Visible = false;
+
+            }
+
+        }
+
+        private void iconButton3_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormsAdmin.FormCajas(), sender);
+        }
+
+        private void iconButton4_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormsAdmin.FormCajero(), sender);
+        }
+
+        private void iconButton5_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormsAdmin.FormConsultaRecibos(), sender);
+        }
+
+        private void iconButton7_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormsAdmin.FormDepartamento(), sender);
+        }
+
+        private void iconButton8_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormsAdmin.FormDevolucion(), sender);
+        }
+
+        private void iconButton9_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormsAdmin.FormInventario(), sender);
+        }
+
+        private void iconButton10_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormsAdmin.FormProducto(), sender);
+        }
+
+        private void iconButton11_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormsAdmin.FormReporteCajero(), sender);
+        }
+
+        private void iconButton12_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormsAdmin.FormReporteVenta(), sender);
+        }
+
+        private void iconButton13_Click(object sender, EventArgs e)
+        {
+           //Regresar al login
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
