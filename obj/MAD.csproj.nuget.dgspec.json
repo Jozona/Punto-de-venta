@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "D:\\FCFM\\7to Semestre\\MAD\\Mad Josue\\MAD\\MAD\\MAD.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "D:\\FCFM\\7to Semestre\\MAD\\Mad Josue\\MAD\\MAD\\MAD.csproj",
         "packagesPath": "C:\\Users\\Jahir\\.nuget\\packages\\",
         "outputPath": "D:\\FCFM\\7to Semestre\\MAD\\Mad Josue\\MAD\\MAD\\obj\\",
+=======
+    "C:\\Users\\forag\\OneDrive\\Documents\\GitHub\\Punto-de-venta\\MAD.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\forag\\OneDrive\\Documents\\GitHub\\Punto-de-venta\\MAD.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\forag\\OneDrive\\Documents\\GitHub\\Punto-de-venta\\MAD.csproj",
+        "projectName": "MAD",
+        "projectPath": "C:\\Users\\forag\\OneDrive\\Documents\\GitHub\\Punto-de-venta\\MAD.csproj",
+        "packagesPath": "C:\\Users\\forag\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\forag\\OneDrive\\Documents\\GitHub\\Punto-de-venta\\obj\\",
+>>>>>>> 713d815d83299163ddde2fd8ff635e87305ce860
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "d/YHLkapHUNMa4PhqQZH14qwnIoCaDW//XWeR6tIAAUQZlVba2lxTf8OJdijc0frwT/4d/vlRE1eJLy+PTtSPA==",
   "success": true,
   "projectFilePath": "D:\\FCFM\\7to Semestre\\MAD\\Mad Josue\\MAD\\MAD\\MAD.csproj",
+=======
+  "dgSpecHash": "gWwb171ARAM0ZvTacVDlxlDUDjRrvM0mGh58GXn0I87uI5yTEMg+IHkKp5LVo47kbzRb0iYmDEuxCOwAfCpPpg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\forag\\OneDrive\\Documents\\GitHub\\Punto-de-venta\\MAD.csproj",
+>>>>>>> 713d815d83299163ddde2fd8ff635e87305ce860
   "expectedPackageFiles": [
     "C:\\Users\\Jahir\\.nuget\\packages\\fontawesome.sharp\\6.1.1\\fontawesome.sharp.6.1.1.nupkg.sha512",
     "C:\\Users\\Jahir\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
