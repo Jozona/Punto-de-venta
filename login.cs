@@ -54,15 +54,23 @@ namespace MAD
             var db = new ConexionDB();
             string login = db.Login(txtUsername.Text, txtPassword.Text);
 
-            if (login.Equals("admin") || login.Equals("caja"))
+            if (login.Equals("admin"))
             {
                 this.Hide();
-                var form2 = new Form1(login, txtUsername.Text);
+                var form2 = new Form1(login, txtUsername.Text, -1);
                 form2.Closed += (s, args) => this.Close();
                 form2.Show();
 
             }
-            else {
+            else if (login.Equals("caja")) {
+                this.Hide();
+                var form2 = new Forms.FormEscogerCaja(login, txtUsername.Text);
+                form2.Closed += (s, args) => this.Close();
+                form2.Show();
+
+            }
+            else
+            {
                 MessageBox.Show("Credenciales incorrectas");
             }
 

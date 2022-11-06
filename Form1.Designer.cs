@@ -29,6 +29,7 @@ namespace MAD
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.iconButton13 = new FontAwesome.Sharp.IconButton();
             this.iconButton12 = new FontAwesome.Sharp.IconButton();
@@ -43,8 +44,8 @@ namespace MAD
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panelInfo = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblCaja = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.btnMaximize = new FontAwesome.Sharp.IconButton();
@@ -58,6 +59,7 @@ namespace MAD
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.existencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelMenu.SuspendLayout();
             this.panelInfo.SuspendLayout();
             this.panelTitulo.SuspendLayout();
@@ -354,8 +356,8 @@ namespace MAD
             // panelInfo
             // 
             this.panelInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.panelInfo.Controls.Add(this.label3);
-            this.panelInfo.Controls.Add(this.label2);
+            this.panelInfo.Controls.Add(this.lblFecha);
+            this.panelInfo.Controls.Add(this.lblCaja);
             this.panelInfo.Controls.Add(this.lblUser);
             this.panelInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelInfo.Location = new System.Drawing.Point(0, 0);
@@ -364,25 +366,26 @@ namespace MAD
             this.panelInfo.TabIndex = 0;
             this.panelInfo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInfo_Paint);
             // 
-            // label3
+            // lblFecha
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.LightGray;
-            this.label3.Location = new System.Drawing.Point(62, 35);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 15);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Tipo de usuario";
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.ForeColor = System.Drawing.Color.LightGray;
+            this.lblFecha.Location = new System.Drawing.Point(53, 50);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(34, 15);
+            this.lblFecha.TabIndex = 4;
+            this.lblFecha.Text = "10:24";
             // 
-            // label2
+            // lblCaja
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.LightGray;
-            this.label2.Location = new System.Drawing.Point(89, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "10:24";
+            this.lblCaja.AutoSize = true;
+            this.lblCaja.ForeColor = System.Drawing.Color.LightGray;
+            this.lblCaja.Location = new System.Drawing.Point(53, 35);
+            this.lblCaja.Name = "lblCaja";
+            this.lblCaja.Size = new System.Drawing.Size(109, 15);
+            this.lblCaja.TabIndex = 3;
+            this.lblCaja.Text = "Nombre de usuario";
+            this.lblCaja.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblUser
             // 
@@ -393,6 +396,7 @@ namespace MAD
             this.lblUser.Size = new System.Drawing.Size(109, 15);
             this.lblUser.TabIndex = 0;
             this.lblUser.Text = "Nombre de usuario";
+            this.lblUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelTitulo
             // 
@@ -533,6 +537,11 @@ namespace MAD
             this.label4.TabIndex = 0;
             this.label4.Text = "Productos a punto de reorden";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 10;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -544,6 +553,7 @@ namespace MAD
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelInfo.ResumeLayout(false);
@@ -566,8 +576,6 @@ namespace MAD
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.Panel panelTitulo;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Panel panelSeccion;
         private FontAwesome.Sharp.IconButton btnCerrarChildForm;
@@ -589,6 +597,9 @@ namespace MAD
         private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn existencia;
+        private System.Windows.Forms.Label lblCaja;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

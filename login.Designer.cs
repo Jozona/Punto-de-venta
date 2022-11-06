@@ -194,7 +194,7 @@ namespace MAD
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(385, 23);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "admin";
+            this.txtPassword.Text = "ganyu";
             // 
             // pictureBox3
             // 
@@ -223,7 +223,7 @@ namespace MAD
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(385, 23);
             this.txtUsername.TabIndex = 1;
-            this.txtUsername.Text = "admin";
+            this.txtUsername.Text = "ganyu";
             this.txtUsername.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // pictureBox2

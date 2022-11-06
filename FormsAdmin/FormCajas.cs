@@ -151,5 +151,10 @@ namespace MAD.FormsAdmin
             }
             MessageBox.Show("No se puede eliminar esta caja ya que un cajero la esta utilizando", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
+
+        private void dgvCajas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace MAD.Conexion
         private static void conectar()
         {
 
-            string cnn = ConfigurationManager.ConnectionStrings["conexionDefaultJahir"].ToString();
+            string cnn = ConfigurationManager.ConnectionStrings["conexionDefaultJosue"].ToString();
             _conexion = new SqlConnection(cnn);
             _conexion.Open();
 
@@ -1028,6 +1028,118 @@ namespace MAD.Conexion
                 desconectar();
             }
 
+        }
+
+
+        public DataTable GetCajasDisponibles()
+        {
+            try
+            {
+                //Nos conectamos a la base de datos
+                conectar();
+
+                //Mencionamos que procedure vamos a utilizar 
+                SqlCommand cmd = new SqlCommand("sp_GestionCajas", _conexion);
+
+                //Creamos un adaptador, para traer las filas del sql
+                SqlDataAdapter adaptador = new SqlDataAdapter();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandTimeout = 1200;
+
+                //Añadimos los parametros 
+                cmd.Parameters.Add(new SqlParameter("@operacion", "MC"));
+
+                //Creamos una tabla nueva
+                DataTable tabla = new DataTable();
+                //Al adaptador le asignamos que comando vamos a usar
+                adaptador.SelectCommand = cmd;
+                //Llenamos la tabla y la regresamos
+                adaptador.Fill(tabla);
+                return tabla;
+            }
+            catch (SqlException e)
+            {
+                string error = "Excepcion en la base de datos: " + e.Message;
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                DataTable empty = new DataTable();
+                return empty;
+            }
+            finally
+            {
+                desconectar();
+            }
+
+        }
+
+
+        public int AsignarCaja(int numCaja, byte cajero)
+        {
+            try
+            {
+                //Nos conectamos a la base de datos
+                conectar();
+
+                //Creamos un comando que identifica la procedure que vamos a utilizar
+                SqlCommand cmd = new SqlCommand("sp_GestionCajas", _conexion);
+
+                //Declaramos que vamos a utilizar una procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Añadimos los parametros 
+                cmd.Parameters.Add(new SqlParameter("@operacion", "AC"));
+                cmd.Parameters.Add(new SqlParameter("@cajero", cajero));
+                cmd.Parameters.Add(new SqlParameter("@num_caja", numCaja));
+
+                //Ejecutamos el comando
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Estas utilizando la caja " + numCaja);
+                return 1;
+            }
+            catch (SqlException e)
+            {
+                string error = "Excepcion en la base de datos: " + e.Message;
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return 0;
+
+            }
+            finally
+            {
+                desconectar();
+            }
+        }
+
+        public int LiberarCaja(int numCaja)
+        {
+            try
+            {
+                //Nos conectamos a la base de datos
+                conectar();
+
+                //Creamos un comando que identifica la procedure que vamos a utilizar
+                SqlCommand cmd = new SqlCommand("sp_GestionCajas", _conexion);
+
+                //Declaramos que vamos a utilizar una procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Añadimos los parametros 
+                cmd.Parameters.Add(new SqlParameter("@operacion", "SC"));
+                cmd.Parameters.Add(new SqlParameter("@num_caja", numCaja));
+
+                //Ejecutamos el comando
+                cmd.ExecuteNonQuery();
+                return 1;
+            }
+            catch (SqlException e)
+            {
+                string error = "Excepcion en la base de datos: " + e.Message;
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return 0;
+
+            }
+            finally
+            {
+                desconectar();
+            }
         }
 
         //Aquí termina Cajas

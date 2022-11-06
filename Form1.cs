@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MAD.Conexion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,8 +24,8 @@ namespace MAD
         private Random random;
         private int tempIndex;
         private Form activeForm;
-
-        public Form1(string rol, string username)
+        int cajaGbl = -1;
+        public Form1(string rol, string username, int caja)
         {
             InitializeComponent();
             random = new Random();
@@ -33,8 +34,11 @@ namespace MAD
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            LoadOptions(rol);
+            LoadOptions(rol, caja);
             lblUser.Text = username;
+            lblFecha.Text = DateTime.Now.ToString("MMM dd yyyy,hh:mm");
+            timer1.Start();
+            cajaGbl = caja;
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -178,11 +182,12 @@ namespace MAD
         }
 
         //Funcion que muestra las opciones disponibles dependiendo del rol del usuario
-        private void LoadOptions(string rol) {
+        private void LoadOptions(string rol, int caja) {
             if (rol.Equals("admin"))
             {
                 iconButton1.Visible = false;
                 iconButton2.Visible = false;
+                lblCaja.Visible = false;
 
             }
             else if (rol.Equals("caja"))
@@ -197,7 +202,7 @@ namespace MAD
                 iconButton11.Visible = false;
                 iconButton12.Visible = false;
                 iconButton13.Visible = false;
-
+                lblCaja.Text = "Caja: " + caja.ToString();
             }
         }
 
@@ -259,6 +264,20 @@ namespace MAD
         private void panelInfo_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        //Funcion para mostrar la hora y fecha
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblFecha.Text = DateTime.Now.ToString("MMM dd yyyy,hh:mm");
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (cajaGbl != -1) {
+                var db = new ConexionDB();
+                db.LiberarCaja(cajaGbl);
+            }
         }
     }
 }

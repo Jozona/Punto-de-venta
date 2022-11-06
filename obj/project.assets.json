@@ -485,31 +485,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jahir\\.nuget\\packages\\": {},
+    "C:\\Users\\forag\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "D:\\FCFM\\7to Semestre\\MAD\\Mad Josue\\MAD\\MAD\\MAD.csproj",
+      "projectUniqueName": "D:\\UANL 7mo\\MAD\\gitMAD\\Punto-de-venta\\MAD.csproj",
       "projectName": "MAD",
-      "projectPath": "D:\\FCFM\\7to Semestre\\MAD\\Mad Josue\\MAD\\MAD\\MAD.csproj",
-      "packagesPath": "C:\\Users\\Jahir\\.nuget\\packages\\",
-      "outputPath": "D:\\FCFM\\7to Semestre\\MAD\\Mad Josue\\MAD\\MAD\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\forag\\OneDrive\\Documents\\GitHub\\Punto-de-venta\\MAD.csproj",
-      "projectName": "MAD",
-      "projectPath": "C:\\Users\\forag\\OneDrive\\Documents\\GitHub\\Punto-de-venta\\MAD.csproj",
+      "projectPath": "D:\\UANL 7mo\\MAD\\gitMAD\\Punto-de-venta\\MAD.csproj",
       "packagesPath": "C:\\Users\\forag\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\forag\\OneDrive\\Documents\\GitHub\\Punto-de-venta\\obj\\",
->>>>>>> 713d815d83299163ddde2fd8ff635e87305ce860
+      "outputPath": "D:\\UANL 7mo\\MAD\\gitMAD\\Punto-de-venta\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Jahir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\forag\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -563,8 +555,16 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\UANL 7mo\\MAD\\gitMAD\\Punto-de-venta\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

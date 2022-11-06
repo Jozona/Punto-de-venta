@@ -359,7 +359,8 @@ CREATE PROCEDURE sp_GestionCajas(
 		@estatusCaja BIT = NULL,
 		@id_admin TINYINT = NULL,
 		@id_cajero TINYINT = NULL,
-		@num_caja TINYINT = NULL
+		@num_caja TINYINT = NULL,
+		@cajero TINYINT = NULL
 
 )AS	
 BEGIN
@@ -397,6 +398,28 @@ BEGIN
 	BEGIN
 			UPDATE Caja 
 			SET  estatus = 0
+			WHERE num_caja = @num_caja;	
+	END
+
+	--Asignar caja
+	IF @operacion = 'AC'
+	BEGIN
+			UPDATE Caja 
+			SET  cajero = @cajero
+			WHERE num_caja = @num_caja;	
+	END
+
+	--Mostrar cajas
+	IF @operacion = 'MC'
+	BEGIN
+			SELECT num_caja,estatus, cajero FROM Caja WHERE cajero is null AND estatus = 1;
+	END
+
+	--Salir de caja
+	IF @operacion = 'SC'
+	BEGIN
+			UPDATE Caja 
+			SET  cajero = null
 			WHERE num_caja = @num_caja;	
 	END
 
@@ -477,6 +500,7 @@ SELECT * FROM Roles;
 SELECT * FROM DatosCajero
 SELECT * FROM Cajero;
 SELECT * FROM Administrador;
+SELECT * FROM caja;
 DROP TABLE Cajero;
 DROP TABLE Administrador;
 TRUNCATE TABLE Usuarios;

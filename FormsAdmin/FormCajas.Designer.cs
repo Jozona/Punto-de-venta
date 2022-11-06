@@ -137,6 +137,7 @@ namespace MAD.FormsAdmin
             this.dgvCajas.Size = new System.Drawing.Size(344, 150);
             this.dgvCajas.TabIndex = 24;
             this.dgvCajas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCajas_CellClick);
+            this.dgvCajas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCajas_CellContentClick);
             // 
             // btnCancelar
             // 
