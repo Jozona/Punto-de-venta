@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using MAD.Conexion;
 
 namespace MAD
 {
@@ -49,37 +50,22 @@ namespace MAD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //if (textBox1.Text == "admin")
-            //{
-            //    user = 0;
-            //    var frm = new Form1();
-            //    frm.Location = this.Location;
-            //    frm.StartPosition = FormStartPosition.Manual;
-            //    frm.FormClosing += delegate { this.Show(); };
-            //    frm.Show();
-            //    this.Hide();
-            //}
-            //else if (textBox1.Text == "cajero")
-            //{
+            //Checamos en la base de datos si el usuario existe
+            var db = new ConexionDB();
+            string login = db.Login(txtUsername.Text, txtPassword.Text);
 
-            //    user = 1;
-            //    var frm = new Form1();
-            //    frm.Location = this.Location;
-            //    frm.StartPosition = FormStartPosition.Manual;
-            //    frm.FormClosing += delegate { this.Show(); };
-            //    frm.Show();
-            //    this.Hide();
-            //}
-            //else {
-            //    MessageBox.Show("Usuario incorrecto");
-            //}
-            string connetionString;
-            SqlConnection cnn;
-            connetionString = @"Data Source=LAPTOP-FINOVELR;Initial Catalog=PuntoDeVenta;User ID=;Password=";
-            cnn = new SqlConnection(connetionString);
-            cnn.Open();
-            MessageBox.Show("Connection Open  !");
-            cnn.Close();
+            if (login.Equals("admin") || login.Equals("caja"))
+            {
+                this.Hide();
+                var form2 = new Form1(login, txtUsername.Text);
+                form2.Closed += (s, args) => this.Close();
+                form2.Show();
+
+            }
+            else {
+                MessageBox.Show("Credenciales incorrectas");
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)

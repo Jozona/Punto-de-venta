@@ -45,7 +45,7 @@ namespace MAD
             this.panelInfo = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblUser = new System.Windows.Forms.Label();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.btnMaximize = new FontAwesome.Sharp.IconButton();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
@@ -356,12 +356,13 @@ namespace MAD
             this.panelInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
             this.panelInfo.Controls.Add(this.label3);
             this.panelInfo.Controls.Add(this.label2);
-            this.panelInfo.Controls.Add(this.label1);
+            this.panelInfo.Controls.Add(this.lblUser);
             this.panelInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelInfo.Location = new System.Drawing.Point(0, 0);
             this.panelInfo.Name = "panelInfo";
             this.panelInfo.Size = new System.Drawing.Size(220, 80);
             this.panelInfo.TabIndex = 0;
+            this.panelInfo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInfo_Paint);
             // 
             // label3
             // 
@@ -383,15 +384,15 @@ namespace MAD
             this.label2.TabIndex = 1;
             this.label2.Text = "10:24";
             // 
-            // label1
+            // lblUser
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.LightGray;
-            this.label1.Location = new System.Drawing.Point(53, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre de usuario";
+            this.lblUser.AutoSize = true;
+            this.lblUser.ForeColor = System.Drawing.Color.LightGray;
+            this.lblUser.Location = new System.Drawing.Point(53, 20);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(109, 15);
+            this.lblUser.TabIndex = 0;
+            this.lblUser.Text = "Nombre de usuario";
             // 
             // panelTitulo
             // 
@@ -567,7 +568,7 @@ namespace MAD
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Panel panelSeccion;
         private FontAwesome.Sharp.IconButton btnCerrarChildForm;
         private FontAwesome.Sharp.IconButton btnMaximize;

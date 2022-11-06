@@ -11,8 +11,12 @@ using System.Windows.Forms;
 
 namespace MAD
 {
+
+
     public partial class Form1 : Form
     {
+
+
         int type = 0;
         //Datos
         private Button currentButton;
@@ -20,7 +24,7 @@ namespace MAD
         private int tempIndex;
         private Form activeForm;
 
-        public Form1()
+        public Form1(string rol, string username)
         {
             InitializeComponent();
             random = new Random();
@@ -29,6 +33,8 @@ namespace MAD
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            LoadOptions(rol);
+            lblUser.Text = username;
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -167,13 +173,20 @@ namespace MAD
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (login.user == 0)
+            
+
+        }
+
+        //Funcion que muestra las opciones disponibles dependiendo del rol del usuario
+        private void LoadOptions(string rol) {
+            if (rol.Equals("admin"))
             {
                 iconButton1.Visible = false;
                 iconButton2.Visible = false;
 
             }
-            else if(login.user == 1) {
+            else if (rol.Equals("caja"))
+            {
                 iconButton3.Visible = false;
                 iconButton4.Visible = false;
                 iconButton5.Visible = false;
@@ -186,17 +199,16 @@ namespace MAD
                 iconButton13.Visible = false;
 
             }
-
         }
 
         private void iconButton3_Click_1(object sender, EventArgs e)
         {
-            OpenChildForm(new FormsAdmin.FormCajas(), sender);
+            OpenChildForm(new FormsAdmin.FormCajas(lblUser.Text), sender);
         }
 
         private void iconButton4_Click_1(object sender, EventArgs e)
         {
-            OpenChildForm(new FormsAdmin.FormCajero(), sender);
+            OpenChildForm(new FormsAdmin.FormCajero(lblUser.Text), sender);
         }
 
         private void iconButton5_Click_1(object sender, EventArgs e)
@@ -206,7 +218,7 @@ namespace MAD
 
         private void iconButton7_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormsAdmin.FormDepartamento(), sender);
+            OpenChildForm(new FormsAdmin.FormDepartamento(lblUser.Text), sender);
         }
 
         private void iconButton8_Click(object sender, EventArgs e)
@@ -221,7 +233,7 @@ namespace MAD
 
         private void iconButton10_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormsAdmin.FormProducto(), sender);
+            OpenChildForm(new FormsAdmin.FormProducto(lblUser.Text), sender);
         }
 
         private void iconButton11_Click(object sender, EventArgs e)
@@ -240,6 +252,11 @@ namespace MAD
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panelInfo_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -40,10 +40,10 @@ namespace MAD
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
@@ -180,21 +180,21 @@ namespace MAD
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.textBox2);
+            this.panel5.Controls.Add(this.txtPassword);
             this.panel5.Controls.Add(this.pictureBox3);
             this.panel5.Location = new System.Drawing.Point(0, 239);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(450, 45);
             this.panel5.TabIndex = 8;
             // 
-            // textBox2
+            // txtPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(53, 13);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(385, 23);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "\\";
+            this.txtPassword.Location = new System.Drawing.Point(53, 13);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(385, 23);
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.Text = "admin";
             // 
             // pictureBox3
             // 
@@ -210,21 +210,21 @@ namespace MAD
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txtUsername);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Location = new System.Drawing.Point(0, 185);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(450, 45);
             this.panel3.TabIndex = 7;
             // 
-            // textBox1
+            // txtUsername
             // 
-            this.textBox1.Location = new System.Drawing.Point(53, 11);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(385, 23);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "admin/cajero";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtUsername.Location = new System.Drawing.Point(53, 11);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(385, 23);
+            this.txtUsername.TabIndex = 1;
+            this.txtUsername.Text = "admin";
+            this.txtUsername.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // pictureBox2
             // 
@@ -306,10 +306,10 @@ namespace MAD
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
     }
