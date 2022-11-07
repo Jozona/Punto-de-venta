@@ -14,6 +14,7 @@ namespace MAD.Forms
         string usernameProxy = "";
         string rolProxy = "";
         string num_cajaSelect = "";
+        List<ProductoVenta> Carrito = new List<ProductoVenta>();
 
         public FormEscogerCaja(string rol, string username)
         {

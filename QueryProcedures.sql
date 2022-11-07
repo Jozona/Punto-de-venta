@@ -3,6 +3,16 @@ use PuntoDeVenta;
 INSERT INTO Usuarios(usuario, contra, rol) VALUES('admin', 'admin', 1);
 INSERT INTO Administrador(usuario) VALUES('admin');
 
+--VIEWS
+
+GO
+CREATE VIEW [Productos para la caja] AS
+SELECT cod_producto, nombre, costo, precio_unitario
+FROM Producto
+WHERE existencia > 0;
+GO
+
+-- Procedures
 
 IF OBJECT_ID('sp_Login') IS NOT NULL
 BEGIN
@@ -230,7 +240,8 @@ BEGIN
 	IF @operacion = 'SA'
 	BEGIN
 			SELECT nombre
-			FROM Departamento;
+			FROM Departamento
+			WHERE activo = 1;
 			
 	END
 
@@ -320,6 +331,15 @@ BEGIN
 			UPDATE Producto 
 			SET estatus = 0
 			WHERE cod_producto = @codProd; 
+	END
+
+
+	--Busqueda de productos
+	IF @operacion = 'BP'
+	BEGIN
+			
+			SELECT cod_producto, nombre, costo, precio_unitario FROM [Productos para la caja];
+		
 	END
 
 
@@ -428,6 +448,8 @@ GO
 
 
 
+
+SELECT * FROM [Productos para la caja];
 
 
 

@@ -409,7 +409,7 @@ namespace MAD
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(220, 0);
             this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(1039, 80);
+            this.panelTitulo.Size = new System.Drawing.Size(1188, 80);
             this.panelTitulo.TabIndex = 1;
             this.panelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitulo_MouseDown);
             // 
@@ -422,7 +422,7 @@ namespace MAD
             this.btnMaximize.IconColor = System.Drawing.Color.White;
             this.btnMaximize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMaximize.IconSize = 18;
-            this.btnMaximize.Location = new System.Drawing.Point(965, 0);
+            this.btnMaximize.Location = new System.Drawing.Point(1114, 0);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(41, 26);
             this.btnMaximize.TabIndex = 6;
@@ -438,7 +438,7 @@ namespace MAD
             this.iconButton6.IconColor = System.Drawing.Color.White;
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton6.IconSize = 14;
-            this.iconButton6.Location = new System.Drawing.Point(997, 2);
+            this.iconButton6.Location = new System.Drawing.Point(1146, 2);
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Size = new System.Drawing.Size(41, 24);
             this.iconButton6.TabIndex = 5;
@@ -454,7 +454,7 @@ namespace MAD
             this.btnExpander.IconColor = System.Drawing.Color.White;
             this.btnExpander.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnExpander.IconSize = 21;
-            this.btnExpander.Location = new System.Drawing.Point(929, 0);
+            this.btnExpander.Location = new System.Drawing.Point(1078, 0);
             this.btnExpander.Name = "btnExpander";
             this.btnExpander.Size = new System.Drawing.Size(41, 21);
             this.btnExpander.TabIndex = 4;
@@ -481,7 +481,7 @@ namespace MAD
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(492, 24);
+            this.lblTitulo.Location = new System.Drawing.Point(567, 24);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(62, 25);
             this.lblTitulo.TabIndex = 0;
@@ -496,7 +496,7 @@ namespace MAD
             this.panelSeccion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSeccion.Location = new System.Drawing.Point(220, 80);
             this.panelSeccion.Name = "panelSeccion";
-            this.panelSeccion.Size = new System.Drawing.Size(1039, 674);
+            this.panelSeccion.Size = new System.Drawing.Size(1188, 674);
             this.panelSeccion.TabIndex = 2;
             // 
             // dataGridView1
@@ -546,7 +546,7 @@ namespace MAD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1259, 754);
+            this.ClientSize = new System.Drawing.Size(1408, 754);
             this.Controls.Add(this.panelSeccion);
             this.Controls.Add(this.panelTitulo);
             this.Controls.Add(this.panelMenu);

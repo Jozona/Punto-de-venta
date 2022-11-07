@@ -832,6 +832,49 @@ namespace MAD.Conexion
 
         }
 
+        public DataTable GetProductosCaja()
+        {
+            try
+            {
+                //Nos conectamos a la base de datos
+                conectar();
+
+                //Mencionamos que procedure vamos a utilizar 
+                SqlCommand cmd = new SqlCommand("sp_GestionProductos", _conexion);
+
+                //Creamos un adaptador, para traer las filas del sql
+                SqlDataAdapter adaptador = new SqlDataAdapter();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandTimeout = 1200;
+
+                //Añadimos los parametros 
+                cmd.Parameters.Add(new SqlParameter("@operacion", "BP"));
+
+
+
+
+                //Creamos una tabla nueva
+                DataTable tabla = new DataTable();
+                //Al adaptador le asignamos que comando vamos a usar
+                adaptador.SelectCommand = cmd;
+                //Llenamos la tabla y la regresamos
+                adaptador.Fill(tabla);
+                return tabla;
+            }
+            catch (SqlException e)
+            {
+                string error = "Excepcion en la base de datos: " + e.Message;
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                DataTable empty = new DataTable();
+                return empty;
+            }
+            finally
+            {
+                desconectar();
+            }
+
+        }
+
         //Aquí termina Productos
 
 

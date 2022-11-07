@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace MAD
 {
@@ -253,7 +254,10 @@ namespace MAD
 
         private void iconButton13_Click(object sender, EventArgs e)
         {
-           //Regresar al login
+            //Regresar al login
+            Process.Start(Application.ExecutablePath);
+            this.Close();
+            Application.Restart();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
