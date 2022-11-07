@@ -255,9 +255,7 @@ namespace MAD
         private void iconButton13_Click(object sender, EventArgs e)
         {
             //Regresar al login
-            Process.Start(Application.ExecutablePath);
-            this.Close();
-            Application.Restart();
+            Application.Exit();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

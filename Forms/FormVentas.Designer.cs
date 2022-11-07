@@ -32,9 +32,9 @@ namespace MAD.Forms
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.tbxNombreProducto = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.tbxCodigoArticulo = new System.Windows.Forms.TextBox();
@@ -97,9 +97,9 @@ namespace MAD.Forms
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panel2.Controls.Add(this.dgvProductos);
             this.panel2.Controls.Add(this.tbxNombreProducto);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.dgvProductos);
             this.panel2.Controls.Add(this.nudCantidad);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.tbxCodigoArticulo);
@@ -118,6 +118,19 @@ namespace MAD.Forms
             this.panel2.Size = new System.Drawing.Size(607, 630);
             this.panel2.TabIndex = 71;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // dgvProductos
+            // 
+            this.dgvProductos.AllowUserToAddRows = false;
+            this.dgvProductos.AllowUserToDeleteRows = false;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Location = new System.Drawing.Point(123, 192);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.ReadOnly = true;
+            this.dgvProductos.RowTemplate.Height = 25;
+            this.dgvProductos.Size = new System.Drawing.Size(422, 150);
+            this.dgvProductos.TabIndex = 72;
+            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick_1);
             // 
             // tbxNombreProducto
             // 
@@ -140,18 +153,6 @@ namespace MAD.Forms
             this.label9.Size = new System.Drawing.Size(145, 20);
             this.label9.TabIndex = 71;
             this.label9.Text = "Nombre del artículo";
-            // 
-            // dgvProductos
-            // 
-            this.dgvProductos.AllowUserToAddRows = false;
-            this.dgvProductos.AllowUserToDeleteRows = false;
-            this.dgvProductos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Location = new System.Drawing.Point(123, 172);
-            this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.ReadOnly = true;
-            this.dgvProductos.Size = new System.Drawing.Size(422, 147);
-            this.dgvProductos.TabIndex = 61;
             // 
             // nudCantidad
             // 
@@ -465,7 +466,6 @@ namespace MAD.Forms
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -487,5 +487,6 @@ namespace MAD.Forms
         private System.Windows.Forms.DataGridView dtvCarrito;
         private System.Windows.Forms.TextBox tbxNombreProducto;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridView dgvProductos;
     }
 }

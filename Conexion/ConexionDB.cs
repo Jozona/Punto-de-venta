@@ -875,6 +875,51 @@ namespace MAD.Conexion
 
         }
 
+        public Forms.ProductoVenta BuscarProducto(int codigo, int cantidad)
+        {
+            try
+            {
+                //Nos conectamos a la base de datos
+                conectar();
+
+                //Creamos un comando que identifica la procedure que vamos a utilizar
+                SqlCommand cmd = new SqlCommand("sp_GestionProductos", _conexion);
+
+                //Declaramos que vamos a utilizar una procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Añadimos los parametros 
+                cmd.Parameters.Add(new SqlParameter("@operacion", "PC"));
+                cmd.Parameters.Add(new SqlParameter("@codProd", codigo));
+
+                //Ejecutamos el comando
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    // While de todas las filas
+                    while (rdr.Read())
+                    {
+                        Forms.ProductoVenta producto = new Forms.ProductoVenta((int)rdr["cod_producto"], (string)rdr["nombre"], (decimal)rdr["precio_unitario"], cantidad);
+                        return producto;
+                    }
+
+                }
+                return null;
+            }
+            catch (SqlException e)
+            {
+                string error = "Excepcion en la base de datos: " + e.Message;
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return null;
+            }
+            finally
+            {
+                desconectar();
+            }
+
+        }
+
+
+
         //Aquí termina Productos
 
 

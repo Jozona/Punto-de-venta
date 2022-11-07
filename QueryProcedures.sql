@@ -446,7 +446,9 @@ BEGIN
 END
 GO
 
-
+UPDATE Caja 
+			SET  cajero = null
+			WHERE num_caja = 1;	
 
 
 SELECT * FROM [Productos para la caja];
