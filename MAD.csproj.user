@@ -43,6 +43,9 @@
     <Compile Update="Forms\Pago.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="inicioCaja.cs">
       <SubType>Form</SubType>
     </Compile>

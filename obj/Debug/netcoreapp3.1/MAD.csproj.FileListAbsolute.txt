@@ -182,3 +182,13 @@ D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\PdfSharp.Charting.
 D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\PdfSharp.dll
 D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\de\PdfSharp.Charting.resources.dll
 D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\de\PdfSharp.resources.dll
+D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\WebView2Loader.dll
+D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\WebView2Loader.dll
+D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\WebView2Loader.dll
+D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\Spire.Pdf.dll
+D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\Spire.PdfViewer.Asp.dll
+D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\Spire.PdfViewer.Forms.dll
+D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\Microsoft.Web.WebView2.Core.dll
+D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\Microsoft.Web.WebView2.WinForms.dll
+D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\Microsoft.Web.WebView2.Wpf.dll
+D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormTicket.resources

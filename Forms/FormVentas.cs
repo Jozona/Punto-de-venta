@@ -224,11 +224,13 @@ namespace MAD.Forms
             else {
                 var db = new ConexionDB();
                 int recibo = db.CrearRecibo(Carrito, descuento, subtotal, subtotal);
-                if (recibo == 1)
+                if (recibo != -1)
                 {
                     MessageBox.Show("El recibo fue creado correctamente");
                     //Imprimimos 
-
+                    var form2 = new FormTicket(recibo);
+                    form2.Closed += (s, args) => this.Close();
+                    form2.Show();
 
 
 
@@ -251,6 +253,11 @@ namespace MAD.Forms
                 }
 
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -946,15 +946,14 @@ namespace MAD.Conexion
                 }
 
                 //Fin, si llego aqui todo se genero correctamente
-                GenerarTicketPDF();
-                MessageBox.Show("Todo bien");
-                return 1;
+                GenerarTicketPDF((int)numRecibo, Carrito);
+                return (int)numRecibo;
             }
             catch (SqlException e)
             {
                 string error = "Excepcion en la base de datos: " + e.Message;
                 MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                return 0;
+                return -1;
 
             }
             finally
@@ -984,7 +983,6 @@ namespace MAD.Conexion
 
                 //Ejecutamos el comando
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Producto asignado");
                 return -1;
             }
             catch (SqlException e)
@@ -1078,24 +1076,86 @@ namespace MAD.Conexion
             }
         }
 
-        private void GenerarTicketPDF() {
+        private void GenerarTicketPDF(int numeroTicket, List<Forms.ProductoVenta> Carrito) {
             // Create PDF Document
             PdfDocument document = new PdfDocument();
             //You will have to add Page in PDF Document
+            //Si llega al limite podemos agregarle otra 
+            //O ver si hay un metodo de alargar la pagina
             PdfPage page = document.AddPage();
             //For drawing in PDF Page you will nedd XGraphics Object
             XGraphics gfx = XGraphics.FromPdfPage(page);
             //For Test you will have to define font to be used
-            XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
+            XFont font = new XFont("Arial", 12, XFontStyle.Regular);
             //Finally use XGraphics & font object to draw text in PDF Page
-            gfx.DrawString("My First PDF Document", font, XBrushes.Black,
-            new XRect(0, 0, page.Width, page.Height), XStringFormats.Center);
+
+            string workingDirectory = Environment.CurrentDirectory;
+            XImage image = XImage.FromFile(workingDirectory + @"\logo.jpg");
+            gfx.DrawImage(image, 290, 30, 100, 100);
+
+
+
+            gfx.DrawString("Recibo No." + numeroTicket.ToString(), font, XBrushes.Black,
+               new XRect(30, -250, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString("Cantidad", font, XBrushes.Black,
+               new XRect(-200, -200, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString("Articulo", font, XBrushes.Black,
+               new XRect(-50, -200, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString("Precio unitario", font, XBrushes.Black,
+               new XRect(100, -200, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString("TOTAL", font, XBrushes.Black,
+               new XRect(200, -200, page.Width, page.Height), XStringFormats.Center);
+
+            double x = -50;
+            double y = -150;
+            decimal total = 0;
+            decimal descuento = 0;
+            decimal subtotal = 0;
+            foreach (var producto in Carrito)
+            {
+                gfx.DrawString(producto.Nombre, font, XBrushes.Black,
+                new XRect(x, y, page.Width, page.Height), XStringFormats.Center);
+                gfx.DrawString(producto.Cantidad.ToString(), font, XBrushes.Black,
+                new XRect(-200, y, page.Width, page.Height), XStringFormats.Center);
+                gfx.DrawString(producto.Precio.ToString(), font, XBrushes.Black,
+                new XRect(100, y, page.Width, page.Height), XStringFormats.Center);
+                gfx.DrawString(producto.Total.ToString(), font, XBrushes.Black,
+                new XRect(200, y, page.Width, page.Height), XStringFormats.Center);
+                y += 30;
+                total += producto.Total;
+                subtotal += producto.Total;
+                descuento += producto.Descuento;
+            }
+
+            gfx.DrawString("Impuestos" + Math.Round((subtotal / 14), 2), font, XBrushes.Black,
+               new XRect(-200, y, page.Width, page.Height), XStringFormats.Center);
+
+            gfx.DrawString("Descuentos", font, XBrushes.Black,
+               new XRect(100, y + 30, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString(subtotal.ToString(), font, XBrushes.Black,
+               new XRect(200, y + 30, page.Width, page.Height), XStringFormats.Center);
+
+
+            gfx.DrawString("Subtotal", font, XBrushes.Black,
+               new XRect(100, y + 60, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString(subtotal.ToString(), font, XBrushes.Black,
+               new XRect(200, y + 60, page.Width, page.Height), XStringFormats.Center);
+
+
+            gfx.DrawString("Total", font, XBrushes.Black,
+              new XRect(100, y + 90, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString(total.ToString(), font, XBrushes.Black,
+               new XRect(200, y + 90, page.Width, page.Height), XStringFormats.Center);
+
+            gfx.DrawString("METODO DE PAGO 1", font, XBrushes.Black,
+              new XRect(100, y + 120, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString(total.ToString(), font, XBrushes.Black,
+               new XRect(200, y + 120, page.Width, page.Height), XStringFormats.Center);
+
             //Specify file name of the PDF file
-            string filename = "FirstPDFDocument.pdf";
+            string filename = numeroTicket + ".pdf";
             //Save PDF File
             document.Save(filename);
-            //Load PDF File for viewing
-            Process.Start(filename);
 
         }
 

@@ -48,6 +48,14 @@
               "target": "Package",
               "version": "[6.1.1, )"
             },
+            "FreeSpire.PDFViewer": {
+              "target": "Package",
+              "version": "[7.6.0, )"
+            },
+            "Microsoft.Web.WebView2": {
+              "target": "Package",
+              "version": "[1.0.1418.22, )"
+            },
             "PdfSharp": {
               "target": "Package",
               "version": "[1.50.5147, )"
