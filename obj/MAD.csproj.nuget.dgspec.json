@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[6.1.1, )"
             },
+            "PdfSharp": {
+              "target": "Package",
+              "version": "[1.50.5147, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.4, )"

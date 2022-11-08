@@ -13,6 +13,8 @@ namespace MAD.Forms
     {
         string productoCodigo = "";
         string productoNombre = "";
+        decimal subtotal = 0;
+        decimal descuento = 0;
         List<ProductoVenta> Carrito = new List<ProductoVenta>();
         public FormVentas()
         {
@@ -82,10 +84,14 @@ namespace MAD.Forms
                 if ( existe != null) {
                     existe.Cantidad += (int)nudCantidad.Value;
                     existe.Total = existe.Cantidad * existe.Precio;
+
+                    //Regresamos los textbox vacios
                     nudCantidad.Value = 0;
                     productoCodigo = "";
                     tbxCodigoArticulo.Text = "";
                     tbxNombreProducto.Text = "";
+
+                    //Actualizamos el carrito en pantalla
                     var bindingList = new BindingList<ProductoVenta>(Carrito);
                     var source = new BindingSource(bindingList, null);
                     dtvCarrito.DataSource = source;
@@ -94,7 +100,7 @@ namespace MAD.Forms
 
 
                 //Agregamos el producto al carrito
-                    AgregarProducto(producto.Codigo,producto.Nombre, producto.Precio, producto.Cantidad);
+                AgregarProducto(producto.Codigo,producto.Nombre, producto.Precio, producto.Cantidad);
                 nudCantidad.Value = 0;
                 productoCodigo = "";
                 tbxCodigoArticulo.Text = "";
@@ -167,6 +173,83 @@ namespace MAD.Forms
                 productoCodigo = tbxCodigoArticulo.Text;
                 tbxCodigoArticulo.Text = producto;
                 tbxNombreProducto.Text = nombre;
+            }
+        }
+
+        private void dtvCarrito_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+            subtotal = 0;
+            descuento = 0;
+            foreach (var producto in Carrito) {
+                subtotal += producto.Total;
+                descuento += producto.Descuento;
+
+            }
+
+            lblSubtotal.Text = "$" + subtotal.ToString("#.##");
+            lblDescuento.Text = "$" + descuento.ToString("#.##");
+
+            //Calcular el total
+            lblTotal.Text = "$" + subtotal.ToString("#.##");
+
+        }
+
+        private void dtvCarrito_DataSourceChanged(object sender, EventArgs e)
+        {
+            subtotal = 0;
+            descuento = 0;
+            foreach (var producto in Carrito)
+            {
+                subtotal += producto.Total;
+                descuento += producto.Descuento;
+
+            }
+
+            lblSubtotal.Text = "$" + subtotal.ToString("#.##");
+            lblDescuento.Text = "$" + descuento.ToString();
+
+            //Calcular el total
+            lblTotal.Text = "$" + subtotal.ToString("#.##");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            //Checamos si el carrito esta vacio
+            if (Carrito.Count == 0)
+            {
+                MessageBox.Show("No hay nada en el carrito");
+            }
+            else {
+                var db = new ConexionDB();
+                int recibo = db.CrearRecibo(Carrito, descuento, subtotal, subtotal);
+                if (recibo == 1)
+                {
+                    MessageBox.Show("El recibo fue creado correctamente");
+                    //Imprimimos 
+
+
+
+
+
+                    Carrito.Clear();
+                    var bindingList = new BindingList<ProductoVenta>(Carrito);
+                    var source = new BindingSource(bindingList, null);
+                    dtvCarrito.DataSource = source;
+
+                    lblSubtotal.Text = "$00.00";
+                    lblDescuento.Text = "$00.00";
+
+                    //Calcular el total
+                    lblTotal.Text = "$00.00";
+
+                }
+                else {
+                    MessageBox.Show("No fue posible crear el recibo");
+
+                }
+
             }
         }
     }

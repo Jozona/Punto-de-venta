@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.1.1" />
+    <PackageReference Include="PdfSharp" Version="1.50.5147" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.4" />
   </ItemGroup>
 

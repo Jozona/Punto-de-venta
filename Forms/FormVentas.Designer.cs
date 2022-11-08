@@ -42,11 +42,11 @@ namespace MAD.Forms
             this.button4 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblDescuento = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblSubtotal = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtvCarrito = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -107,11 +107,11 @@ namespace MAD.Forms
             this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.lblDescuento);
+            this.panel2.Controls.Add(this.lblTotal);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.lblSubtotal);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(510, 3);
             this.panel2.Name = "panel2";
@@ -209,6 +209,7 @@ namespace MAD.Forms
             this.button4.TabIndex = 68;
             this.button4.Text = "Pagar";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label3
             // 
@@ -234,29 +235,29 @@ namespace MAD.Forms
             this.label1.TabIndex = 51;
             this.label1.Text = "Código del artículo";
             // 
-            // label10
+            // lblDescuento
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label10.Location = new System.Drawing.Point(92, 547);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(67, 20);
-            this.label10.TabIndex = 65;
-            this.label10.Text = "$100.00";
+            this.lblDescuento.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDescuento.AutoSize = true;
+            this.lblDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDescuento.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblDescuento.Location = new System.Drawing.Point(92, 547);
+            this.lblDescuento.Name = "lblDescuento";
+            this.lblDescuento.Size = new System.Drawing.Size(58, 20);
+            this.lblDescuento.TabIndex = 65;
+            this.lblDescuento.Text = "$00.00";
             // 
-            // label12
+            // lblTotal
             // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label12.Location = new System.Drawing.Point(327, 547);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(67, 20);
-            this.label12.TabIndex = 67;
-            this.label12.Text = "$100.00";
+            this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTotal.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblTotal.Location = new System.Drawing.Point(327, 547);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(58, 20);
+            this.lblTotal.TabIndex = 67;
+            this.lblTotal.Text = "$00.00";
             // 
             // button1
             // 
@@ -286,17 +287,17 @@ namespace MAD.Forms
             this.label2.TabIndex = 53;
             this.label2.Text = "Cantidad";
             // 
-            // label11
+            // lblSubtotal
             // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label11.Location = new System.Drawing.Point(218, 547);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(67, 20);
-            this.label11.TabIndex = 66;
-            this.label11.Text = "$100.00";
+            this.lblSubtotal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblSubtotal.AutoSize = true;
+            this.lblSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblSubtotal.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSubtotal.Location = new System.Drawing.Point(218, 547);
+            this.lblSubtotal.Name = "lblSubtotal";
+            this.lblSubtotal.Size = new System.Drawing.Size(58, 20);
+            this.lblSubtotal.TabIndex = 66;
+            this.lblSubtotal.Text = "$00.00";
             // 
             // panel1
             // 
@@ -317,6 +318,8 @@ namespace MAD.Forms
             this.dtvCarrito.RowTemplate.Height = 25;
             this.dtvCarrito.Size = new System.Drawing.Size(507, 562);
             this.dtvCarrito.TabIndex = 1;
+            this.dtvCarrito.DataSourceChanged += new System.EventHandler(this.dtvCarrito_DataSourceChanged);
+            this.dtvCarrito.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtvCarrito_CellValueChanged);
             // 
             // panel3
             // 
@@ -460,9 +463,9 @@ namespace MAD.Forms
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblSubtotal;
+        private System.Windows.Forms.Label lblDescuento;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

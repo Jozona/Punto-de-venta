@@ -178,3 +178,7 @@ D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.dll
 D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.pdb
 D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.genruntimeconfig.cache
 D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Forms.FormEscogerCaja.resources
+D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\PdfSharp.Charting.dll
+D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\PdfSharp.dll
+D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\de\PdfSharp.Charting.resources.dll
+D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\de\PdfSharp.resources.dll

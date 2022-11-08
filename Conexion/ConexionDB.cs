@@ -5,6 +5,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using System.Windows.Forms;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System.Diagnostics;
 
 namespace MAD.Conexion
 {
@@ -47,7 +50,7 @@ namespace MAD.Conexion
             _conexion.Close();
         }
 
-
+        #region Cajeros
         //Funcion para iniciar sesion al usuario
         public string Login(string username, string password) {
             try
@@ -300,8 +303,9 @@ namespace MAD.Conexion
                 desconectar();
             }
         }
+#endregion
 
-
+        #region Departamentos
 
         //Aquí empieza Departamentos
 
@@ -609,8 +613,9 @@ namespace MAD.Conexion
 
 
         //Aquí termina Departamentos
+#endregion
 
-
+        #region Productos
         //Aquí empieza Productos
         public int InsertarProducto(string nombreProd, string descripcionProd, double costoProd, double preioUProd, int existenciaProd, int puntoReProd, int estatusProd, string usernameAdmin, string nombreUMed, string nombreDep)
         {
@@ -917,15 +922,187 @@ namespace MAD.Conexion
             }
 
         }
-
-
-
         //Aquí termina Productos
+        #endregion
+
+        #region Recibos
+        //Funciones del recibo
+        public int CrearRecibo(List<Forms.ProductoVenta> Carrito, decimal descuento, decimal subtotal, decimal total)
+        {
+
+            //En esta funcion vamos a crear todo lo relacionado con los recibos
+            try
+            {
+                //Primero generamos el recibo con los datos que necesita
+                GenerarRecibo(descuento, subtotal, total);
+
+                //Despues conseguimos el numero del recibo que acabamos de crear
+                decimal numRecibo = IdUltimoRecibo();
 
 
+                //Por cada producto en el carrito, lo vamos a asociar con sus datos necesarios al recibo que creamos
+                foreach (var producto in Carrito) {
+                    ProductoVendido(producto, (int)numRecibo);
+                }
 
+                //Fin, si llego aqui todo se genero correctamente
+                GenerarTicketPDF();
+                MessageBox.Show("Todo bien");
+                return 1;
+            }
+            catch (SqlException e)
+            {
+                string error = "Excepcion en la base de datos: " + e.Message;
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return 0;
+
+            }
+            finally
+            {
+                desconectar();
+            }
+        }
+
+        private int ProductoVendido(Forms.ProductoVenta producto, int recibo) {
+            try
+            {
+                //Nos conectamos a la base de datos
+                conectar();
+
+                //Creamos un comando que identifica la procedure que vamos a utilizar
+                SqlCommand cmd = new SqlCommand("sp_GestionRecibos", _conexion);
+
+                //Declaramos que vamos a utilizar una procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Añadimos los parametros 
+                cmd.Parameters.Add(new SqlParameter("@operacion", "ID"));
+                cmd.Parameters.Add(new SqlParameter("@precioProducto", producto.Precio));
+                cmd.Parameters.Add(new SqlParameter("@cantidadProducto", producto.Cantidad));
+                cmd.Parameters.Add(new SqlParameter("@codProducto", producto.Codigo));
+                cmd.Parameters.Add(new SqlParameter("@numRecibo", recibo));  
+
+                //Ejecutamos el comando
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Producto asignado");
+                return -1;
+            }
+            catch (SqlException e)
+            {
+                string error = "Excepcion en la base de datos: " + e.Message;
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return -1;
+
+            }
+            finally
+            {
+                desconectar();
+            }
+
+
+        }
+
+        private int GenerarRecibo(decimal descuento, decimal subtotal, decimal total) {
+            try
+            {
+                //Nos conectamos a la base de datos
+                conectar();
+
+                //Creamos un comando que identifica la procedure que vamos a utilizar
+                SqlCommand cmd = new SqlCommand("sp_GestionRecibos", _conexion);
+
+                //Declaramos que vamos a utilizar una procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Añadimos los parametros 
+                cmd.Parameters.Add(new SqlParameter("@operacion", "I"));
+                cmd.Parameters.Add(new SqlParameter("@descuento", (object)descuento));
+                cmd.Parameters.Add(new SqlParameter("@subtotal", (object)subtotal));
+                cmd.Parameters.Add(new SqlParameter("@total", (object)total));
+
+                //Ejecutamos el comando
+                cmd.ExecuteNonQuery();
+                return -1;
+            }
+            catch (SqlException e)
+            {
+                string error = "Excepcion en la base de datos: " + e.Message;
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return -1;
+
+            }
+            finally
+            {
+                desconectar();
+            }
+        }
+
+        private decimal IdUltimoRecibo()
+        {
+            try
+            {
+                //Nos conectamos a la base de datos
+                conectar();
+
+                //Creamos un comando que identifica la procedure que vamos a utilizar
+                SqlCommand cmd = new SqlCommand("sp_GestionRecibos", _conexion);
+
+                //Declaramos que vamos a utilizar una procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Añadimos los parametros 
+                cmd.Parameters.Add(new SqlParameter("@operacion", "ID"));
+
+                //Ejecutamos el comando
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    // While de todas las filas
+                    while (rdr.Read())
+                    {
+                        return (decimal)rdr["UltimoId"];
+                    }
+
+                }
+                return -1;
+            }
+            catch (SqlException e)
+            {
+                string error = "Excepcion en la base de datos: " + e.Message;
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return -1;
+
+            }
+            finally
+            {
+                desconectar();
+            }
+        }
+
+        private void GenerarTicketPDF() {
+            // Create PDF Document
+            PdfDocument document = new PdfDocument();
+            //You will have to add Page in PDF Document
+            PdfPage page = document.AddPage();
+            //For drawing in PDF Page you will nedd XGraphics Object
+            XGraphics gfx = XGraphics.FromPdfPage(page);
+            //For Test you will have to define font to be used
+            XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
+            //Finally use XGraphics & font object to draw text in PDF Page
+            gfx.DrawString("My First PDF Document", font, XBrushes.Black,
+            new XRect(0, 0, page.Width, page.Height), XStringFormats.Center);
+            //Specify file name of the PDF file
+            string filename = "FirstPDFDocument.pdf";
+            //Save PDF File
+            document.Save(filename);
+            //Load PDF File for viewing
+            Process.Start(filename);
+
+        }
+
+        #endregion
+
+        #region Cajas
         //Aquí empieza Cajas
-
         public string GetNumCaja()
         {
             try
@@ -1229,15 +1406,10 @@ namespace MAD.Conexion
                 desconectar();
             }
         }
-
         //Aquí termina Cajas
+        #endregion
 
-
-
-
-
-
-        //obtener IDS
+        #region Miscaleno
         public byte GetIdCajero(string username)
         {
             try
@@ -1366,6 +1538,7 @@ namespace MAD.Conexion
             }
 
         }
+        #endregion
     }
 
 
