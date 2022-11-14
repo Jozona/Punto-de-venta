@@ -927,7 +927,7 @@ namespace MAD.Conexion
 
         #region Recibos
         //Funciones del recibo
-        public int CrearRecibo(List<Forms.ProductoVenta> Carrito, decimal descuento, decimal subtotal, decimal total)
+        public int CrearRecibo(List<Forms.ProductoVenta> Carrito, List<Forms.Pagos> Pagos ,decimal descuento, decimal subtotal, decimal total)
         {
 
             //En esta funcion vamos a crear todo lo relacionado con los recibos
@@ -945,8 +945,13 @@ namespace MAD.Conexion
                     ProductoVendido(producto, (int)numRecibo);
                 }
 
+                foreach (var pago in Pagos)
+                {
+                    AsignarPagos(pago, (int)numRecibo);
+                }
+
                 //Fin, si llego aqui todo se genero correctamente
-                GenerarTicketPDF((int)numRecibo, Carrito);
+                GenerarTicketPDF((int)numRecibo, Carrito, Pagos);
                 return (int)numRecibo;
             }
             catch (SqlException e)
@@ -1076,7 +1081,47 @@ namespace MAD.Conexion
             }
         }
 
-        private void GenerarTicketPDF(int numeroTicket, List<Forms.ProductoVenta> Carrito) {
+
+        private int AsignarPagos(Forms.Pagos pagos, int recibo)
+        {
+            try
+            {
+                //Nos conectamos a la base de datos
+                conectar();
+
+                //Creamos un comando que identifica la procedure que vamos a utilizar
+                SqlCommand cmd = new SqlCommand("sp_GestionRecibos", _conexion);
+
+                //Declaramos que vamos a utilizar una procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Añadimos los parametros 
+                cmd.Parameters.Add(new SqlParameter("@operacion", "RP"));
+                cmd.Parameters.Add(new SqlParameter("@metodoPago", pagos.Metodo));
+                cmd.Parameters.Add(new SqlParameter("@cantidadPago", pagos.CantidadPagada));
+                cmd.Parameters.Add(new SqlParameter("@numRecibo", recibo));
+
+                //Ejecutamos el comando
+                cmd.ExecuteNonQuery();
+                return -1;
+            }
+            catch (SqlException e)
+            {
+                string error = "Excepcion en la base de datos: " + e.Message;
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return -1;
+
+            }
+            finally
+            {
+                desconectar();
+            }
+
+
+        }
+
+
+        private void GenerarTicketPDF(int numeroTicket, List<Forms.ProductoVenta> Carrito, List<Forms.Pagos> Pagos) {
             // Create PDF Document
             PdfDocument document = new PdfDocument();
             //You will have to add Page in PDF Document
@@ -1117,9 +1162,9 @@ namespace MAD.Conexion
                 new XRect(x, y, page.Width, page.Height), XStringFormats.Center);
                 gfx.DrawString(producto.Cantidad.ToString(), font, XBrushes.Black,
                 new XRect(-200, y, page.Width, page.Height), XStringFormats.Center);
-                gfx.DrawString(producto.Precio.ToString(), font, XBrushes.Black,
+                gfx.DrawString("$" + producto.Precio.ToString("#.##"), font, XBrushes.Black,
                 new XRect(100, y, page.Width, page.Height), XStringFormats.Center);
-                gfx.DrawString(producto.Total.ToString(), font, XBrushes.Black,
+                gfx.DrawString("$" + producto.Total.ToString("#.##"), font, XBrushes.Black,
                 new XRect(200, y, page.Width, page.Height), XStringFormats.Center);
                 y += 30;
                 total += producto.Total;
@@ -1127,30 +1172,38 @@ namespace MAD.Conexion
                 descuento += producto.Descuento;
             }
 
-            gfx.DrawString("Impuestos" + Math.Round((subtotal / 14), 2), font, XBrushes.Black,
+            gfx.DrawString("Impuestos " + "$" + Math.Round((subtotal / 14), 2), font, XBrushes.Black,
                new XRect(-200, y, page.Width, page.Height), XStringFormats.Center);
 
+            y += 30;
             gfx.DrawString("Descuentos", font, XBrushes.Black,
-               new XRect(100, y + 30, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString(subtotal.ToString(), font, XBrushes.Black,
-               new XRect(200, y + 30, page.Width, page.Height), XStringFormats.Center);
+               new XRect(100, y , page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString("$" + subtotal.ToString("#.##"), font, XBrushes.Black,
+               new XRect(200, y, page.Width, page.Height), XStringFormats.Center);
 
-
+            y += 30;
             gfx.DrawString("Subtotal", font, XBrushes.Black,
-               new XRect(100, y + 60, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString(subtotal.ToString(), font, XBrushes.Black,
-               new XRect(200, y + 60, page.Width, page.Height), XStringFormats.Center);
+               new XRect(100, y , page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString("$" + subtotal.ToString("#.##"), font, XBrushes.Black,
+               new XRect(200, y , page.Width, page.Height), XStringFormats.Center);
 
-
+            y += 30;
             gfx.DrawString("Total", font, XBrushes.Black,
-              new XRect(100, y + 90, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString(total.ToString(), font, XBrushes.Black,
-               new XRect(200, y + 90, page.Width, page.Height), XStringFormats.Center);
+              new XRect(100, y, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString("$" + total.ToString("#.##"), font, XBrushes.Black,
+               new XRect(200, y, page.Width, page.Height), XStringFormats.Center);
 
-            gfx.DrawString("METODO DE PAGO 1", font, XBrushes.Black,
-              new XRect(100, y + 120, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString(total.ToString(), font, XBrushes.Black,
-               new XRect(200, y + 120, page.Width, page.Height), XStringFormats.Center);
+            y += 30;
+            foreach (var pago in Pagos)
+            {
+                gfx.DrawString(pago.NombreMetodo, font, XBrushes.Black,
+                new XRect(100, y, page.Width, page.Height), XStringFormats.Center);
+                gfx.DrawString("$" + pago.CantidadPagada.ToString("#.##"), font, XBrushes.Black,
+                   new XRect(200, y, page.Width, page.Height), XStringFormats.Center);
+                y += 30;
+            }
+
+            
 
             //Specify file name of the PDF file
             string filename = numeroTicket + ".pdf";
@@ -1598,6 +1651,95 @@ namespace MAD.Conexion
             }
 
         }
+
+        public int GetIdMetodoDePago(string metodo) {
+            try
+            {
+                //Nos conectamos a la base de datos
+                conectar();
+
+                //Creamos un comando que identifica la procedure que vamos a utilizar
+                SqlCommand cmd = new SqlCommand("sp_GestionCajas", _conexion);
+
+                //Declaramos que vamos a utilizar una procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Añadimos los parametros 
+                cmd.Parameters.Add(new SqlParameter("@metodo", metodo));
+                cmd.Parameters.Add(new SqlParameter("@operacion", "BM"));
+                //Ejecutamos el comando
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    // While de todas las filas
+                    while (rdr.Read())
+                    {
+                        return (byte)rdr["id_metodo"];
+                    }
+
+                }
+                return 0;
+            }
+            catch (SqlException e)
+            {
+                string error = "Excepcion en la base de datos: " + e.Message;
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return 0;
+
+            }
+            finally
+            {
+                desconectar();
+            }
+        }
+
+
+
+        public List<string> GetMetodosDePagoName()
+        {
+            try
+            {
+                List<string> departamentos = new List<string>();
+                //Nos conectamos a la base de datos
+                conectar();
+
+                //Creamos un comando que identifica la procedure que vamos a utilizar
+                SqlCommand cmd = new SqlCommand("sp_GestionCajas", _conexion);
+
+                //Declaramos que vamos a utilizar una procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Añadimos los parametros 
+                cmd.Parameters.Add(new SqlParameter("@operacion", "MP"));
+
+                //Ejecutamos el comando
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    // While de todas las filas
+                    while (rdr.Read())
+                    {
+                        departamentos.Add((string)rdr["metodo"]);
+                    }
+
+                    return departamentos;
+                }
+
+            }
+            catch (SqlException e)
+            {
+                string error = "Excepcion en la base de datos: " + e.Message;
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                List<string> departamentosNull = new List<string>();
+                return departamentosNull;
+
+            }
+            finally
+            {
+                desconectar();
+            }
+
+        }
+
+
         #endregion
     }
 

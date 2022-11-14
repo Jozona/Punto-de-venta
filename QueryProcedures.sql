@@ -3,14 +3,24 @@ use PuntoDeVenta;
 INSERT INTO Usuarios(usuario, contra, rol) VALUES('admin', 'admin', 1);
 INSERT INTO Administrador(usuario) VALUES('admin');
 
+
 --VIEWS
 
+IF OBJECT_ID('[Productos para la caja]') IS NOT NULL
+	drop view [Productos para la caja];
 GO
 CREATE VIEW [Productos para la caja] AS
 SELECT cod_producto, nombre, costo, precio_unitario
 FROM Producto
 WHERE existencia > 0;
+
 GO
+If OBJECT_ID('[Productos para la caja]') IS NOT NULL
+	Print 'View creada: [Productos para la caja]'
+
+
+
+
 
 -- Procedures
 
@@ -342,6 +352,15 @@ BEGIN
 		
 	END
 
+	-- Producto con codigo
+	IF @operacion = 'PC'
+	BEGIN
+			
+			SELECT cod_producto, nombre, costo, precio_unitario FROM [Productos para la caja]
+			WHERE cod_producto = @codProd;
+		
+	END
+
 
 	--IF @operacion = 'S'
 	--BEGIN
@@ -366,7 +385,6 @@ BEGIN
 	
 END
 GO
-
 
 --Gestion Cajas
 IF OBJECT_ID('sp_GestionCajas') IS NOT NULL
@@ -446,13 +464,63 @@ BEGIN
 END
 GO
 
-UPDATE Caja 
-			SET  cajero = null
-			WHERE num_caja = 1;	
 
 
-SELECT * FROM [Productos para la caja];
+--Gestion de recibos
 
+IF OBJECT_ID('sp_GestionRecibos') IS NOT NULL
+BEGIN
+	DROP PROCEDURE sp_GestionRecibos
+END
+GO
+CREATE PROCEDURE sp_GestionRecibos(
+		@operacion VARCHAR(2) = NULL,
+		@descuento SMALLMONEY = NULL,
+		@subtotal SMALLMONEY = NULL,
+		@total SMALLMONEY = NULL,
+		@precioProducto SMALLMONEY = NULL,
+		@cantidadProducto SMALLMONEY = NULL,
+		@codProducto INT = NULL,
+		@numRecibo INT = NULL
+)AS	
+BEGIN
+	DECLARE @Fecha as date
+	SET @Fecha = GetDate()
+	
+	-- Crear el recibo
+	IF @operacion = 'I'
+	BEGIN
+			INSERT INTO Recibo(descuento, subtotal, total, fecha_venta)
+			VALUES(@descuento, @subtotal, @total, @Fecha);
+
+		
+	END
+
+	--Obtener el id del ultimo recibo
+	IF @operacion = 'ID'
+	BEGIN
+
+			SELECT IDENT_CURRENT ('Recibo') AS UltimoId; 
+		
+	END
+
+
+	-- Asociar los productos con su recibo
+	IF @operacion = 'ID'
+	BEGIN
+
+			INSERT INTO ProductoComprado(precio_producto, cantidad, cod_producto, num_recibo)
+			VALUES(@precioProducto, @cantidadProducto, @codProducto, @numRecibo);
+		
+	END
+
+END
+GO
+
+INSERT INTO Recibo(descuento, subtotal, total, fecha_venta)
+			VALUES(2, 2, 2, GetDate());
+
+			SELECT SCOPE_IDENTITY() as id;
 
 
 --Pruebas 
@@ -462,6 +530,8 @@ Select * from Usuarios
 Select * from Cajero
 Select * from DatosCajero
 Select * from Administrador
+SELECT * FROM Recibo;
+SELECT * FROM ProductoComprado;
 
 update Caja set cajero = 1 where num_caja=2;
 
@@ -489,6 +559,15 @@ INSERT INTO Cajero(usuario) VALUES ('caja1');
 USE [PuntoDeVenta]
 GO
 
+--Correcion de errores 
+
+UPDATE Caja 
+			SET  cajero = null
+			WHERE num_caja = 1;	
+
+
+SELECT * FROM [Productos para la caja];
+
 SELECT Cajero.id_cajero
 			FROM Cajero
 			WHERE usuario='caja1';
@@ -511,6 +590,10 @@ INNER JOIN Cajero ON DatosCajero.id_cajero=Cajero.id_cajero;
 
 
 INSERT INTO Administrador(usuario) VALUES('admin');
+
+INSERT INTO MetodosPago(metodo) VALUES('Efectivo');
+INSERT INTO MetodosPago(metodo) VALUES('Tarjeta de debito');
+INSERT INTO MetodosPago(metodo) VALUES('Tarjeta de credito');
 
 TRUNCATE TABLE Cajero;
 TRUNCATE TABLE Cajero;

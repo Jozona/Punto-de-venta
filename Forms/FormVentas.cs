@@ -13,9 +13,11 @@ namespace MAD.Forms
     {
         string productoCodigo = "";
         string productoNombre = "";
+        decimal totalTemporal = 0;
         decimal subtotal = 0;
         decimal descuento = 0;
         List<ProductoVenta> Carrito = new List<ProductoVenta>();
+        List<Pagos> LaCuenta = new List<Pagos>();
         public FormVentas()
         {
             InitializeComponent();
@@ -30,6 +32,16 @@ namespace MAD.Forms
             dgvProductos.AllowUserToResizeColumns = true;
             dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProductos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
+
+            //Cargar los metodos de pago
+            cbxMetodosPago.DropDownStyle = ComboBoxStyle.DropDownList;
+            List<string> metodos = db.GetMetodosDePagoName();
+            foreach (var metodo in metodos)
+            {
+                cbxMetodosPago.Items.Add(metodo);
+            }
+
         }
 
         private void LoadTheme() {
@@ -215,52 +227,128 @@ namespace MAD.Forms
 
         private void button4_Click(object sender, EventArgs e)
         {
-
-            //Checamos si el carrito esta vacio
-            if (Carrito.Count == 0)
-            {
-                MessageBox.Show("No hay nada en el carrito");
-            }
-            else {
-                var db = new ConexionDB();
-                int recibo = db.CrearRecibo(Carrito, descuento, subtotal, subtotal);
-                if (recibo != -1)
-                {
-                    MessageBox.Show("El recibo fue creado correctamente");
-                    //Imprimimos 
-                    var form2 = new FormTicket(recibo);
-                    form2.Closed += (s, args) => this.Close();
-                    form2.Show();
-
-
-
-
-                    Carrito.Clear();
-                    var bindingList = new BindingList<ProductoVenta>(Carrito);
-                    var source = new BindingSource(bindingList, null);
-                    dtvCarrito.DataSource = source;
-
-                    lblSubtotal.Text = "$00.00";
-                    lblDescuento.Text = "$00.00";
-
-                    //Calcular el total
-                    lblTotal.Text = "$00.00";
-
-                }
-                else {
-                    MessageBox.Show("No fue posible crear el recibo");
-
-                }
-
-            }
+            panelPago.Visible = true;
+            button3.Visible = true;
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            button3.Visible = false;
+            panelPago.Visible = false;
+            //Hacer una funcion para borrar la lista de pagos
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (cbxMetodosPago.Text.Equals("")) {
+                MessageBox.Show("Escoge un metodo de pago");
+                return;
+            }
+
+            if (nupPagar.Value == 0)
+            {
+                MessageBox.Show("Ingresa una cantidad a pagar");
+                return;
+            }
+
+
+            if (nupPagar.Value > subtotal) {
+                MessageBox.Show("Cantidad incorrecta");
+                return;
+            }
+
+            subtotal -= nupPagar.Value;
+            lblSubtotal.Text = "$" + subtotal.ToString("#.##");
+            lblTotal.Text = "$" + subtotal.ToString("#.##");
+
+            //Checamos si el metodo de pago ya esta en el LaCuenta para solo aumentar la cantidad
+            var existe = LaCuenta.Find(p => p.NombreMetodo == cbxMetodosPago.Text);
+            if (existe != null)
+            {
+                existe.CantidadPagada += nudCantidad.Value;
+
+                //Regresamos los textbox vacios
+                cbxMetodosPago.SelectedIndex = -1;
+                nupPagar.Value = 0;
+            }
+            else {
+                LaCuenta.Add(new Pagos(nupPagar.Value, cbxMetodosPago.Text));
+                //foreach (var pago in LaCuenta) {
+                //    MessageBox.Show(pago.NombreMetodo + " " + pago.Metodo);
+                //}
+
+                cbxMetodosPago.SelectedIndex = -1;
+                nupPagar.Value = 0;
+
+            }
+
+            
+
+            if (subtotal == 0) {
+                MessageBox.Show("La compra fue pagada");
+                subtotal = 0;
+                descuento = 0;
+                foreach (var producto in Carrito)
+                {
+                    subtotal += producto.Total;
+                    descuento += producto.Descuento;
+
+                }
+                //Checamos si el carrito esta vacio
+                if (Carrito.Count == 0)
+                {
+                    MessageBox.Show("No hay nada en el carrito");
+                }
+                else {
+                    var db = new ConexionDB();
+                    int recibo = db.CrearRecibo(Carrito, LaCuenta ,descuento, subtotal, subtotal);
+                    if (recibo != -1)
+                    {
+                        MessageBox.Show("El recibo fue creado correctamente");
+                        //Imprimimos 
+                        var form2 = new FormTicket(recibo);
+                        form2.Closed += (s, args) => this.Close();
+                        form2.Show();
+
+
+
+
+                        Carrito.Clear();
+                        LaCuenta.Clear();
+                        button3.Visible = false;
+                        panelPago.Visible = false;
+                        var bindingList = new BindingList<ProductoVenta>(Carrito);
+                        var source = new BindingSource(bindingList, null);
+                        dtvCarrito.DataSource = source;
+
+                        lblSubtotal.Text = "$00.00";
+                        lblDescuento.Text = "$00.00";
+
+                        //Calcular el total
+                        lblTotal.Text = "$00.00";
+
+                    }
+                    else {
+                        MessageBox.Show("No fue posible crear el recibo");
+
+                    }
+
+                }
+            }
+        }
     }
+
+
+
+
 }
+
 
 /*
 public static class Prompt

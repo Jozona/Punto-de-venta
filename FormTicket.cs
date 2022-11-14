@@ -17,7 +17,6 @@ namespace MAD
         {
             InitializeComponent();
             string workingDirectory = Environment.CurrentDirectory;
-            MessageBox.Show(workingDirectory);
             string pdfDoc = workingDirectory + @"\" + numeroTicket  +".pdf";
           
            if (File.Exists(pdfDoc))

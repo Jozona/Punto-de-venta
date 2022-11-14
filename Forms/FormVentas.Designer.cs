@@ -32,6 +32,16 @@ namespace MAD.Forms
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.panelPago = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.nupPagar = new System.Windows.Forms.NumericUpDown();
+            this.cbxMetodosPago = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.tbxNombreProducto = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -54,6 +64,9 @@ namespace MAD.Forms
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panelPago.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupPagar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             this.panel1.SuspendLayout();
@@ -85,6 +98,8 @@ namespace MAD.Forms
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.panelPago);
             this.panel2.Controls.Add(this.dgvProductos);
             this.panel2.Controls.Add(this.tbxNombreProducto);
             this.panel2.Controls.Add(this.label9);
@@ -106,6 +121,132 @@ namespace MAD.Forms
             this.panel2.Size = new System.Drawing.Size(607, 630);
             this.panel2.TabIndex = 71;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button3.BackColor = System.Drawing.Color.Crimson;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.SystemColors.Control;
+            this.button3.Location = new System.Drawing.Point(427, 494);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(147, 60);
+            this.button3.TabIndex = 74;
+            this.button3.Text = "Cancelar";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Visible = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // panelPago
+            // 
+            this.panelPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelPago.Controls.Add(this.pictureBox1);
+            this.panelPago.Controls.Add(this.label11);
+            this.panelPago.Controls.Add(this.button2);
+            this.panelPago.Controls.Add(this.label10);
+            this.panelPago.Controls.Add(this.label7);
+            this.panelPago.Controls.Add(this.nupPagar);
+            this.panelPago.Controls.Add(this.cbxMetodosPago);
+            this.panelPago.Controls.Add(this.label6);
+            this.panelPago.Location = new System.Drawing.Point(6, 3);
+            this.panelPago.Name = "panelPago";
+            this.panelPago.Size = new System.Drawing.Size(585, 498);
+            this.panelPago.TabIndex = 73;
+            this.panelPago.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MAD.Properties.Resources.Screenshot_2022_11_12_232844;
+            this.pictureBox1.InitialImage = global::MAD.Properties.Resources.Screenshot_2022_11_12_232844;
+            this.pictureBox1.Location = new System.Drawing.Point(86, 345);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(453, 138);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 76;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label11.Location = new System.Drawing.Point(167, 299);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(317, 21);
+            this.label11.TabIndex = 75;
+            this.label11.Text = "Recuerda checar el sello de todos los billetes";
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.BackColor = System.Drawing.Color.Gold;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(285, 237);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(89, 28);
+            this.button2.TabIndex = 74;
+            this.button2.Text = "Pagar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label10.Location = new System.Drawing.Point(136, 190);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(128, 21);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Cantidad a pagar";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(136, 134);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(124, 21);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Metodo de pago";
+            // 
+            // nupPagar
+            // 
+            this.nupPagar.DecimalPlaces = 2;
+            this.nupPagar.Location = new System.Drawing.Point(270, 188);
+            this.nupPagar.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.nupPagar.Name = "nupPagar";
+            this.nupPagar.Size = new System.Drawing.Size(121, 23);
+            this.nupPagar.TabIndex = 2;
+            // 
+            // cbxMetodosPago
+            // 
+            this.cbxMetodosPago.FormattingEnabled = true;
+            this.cbxMetodosPago.Location = new System.Drawing.Point(270, 131);
+            this.cbxMetodosPago.MaxDropDownItems = 50;
+            this.cbxMetodosPago.Name = "cbxMetodosPago";
+            this.cbxMetodosPago.Size = new System.Drawing.Size(121, 23);
+            this.cbxMetodosPago.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Location = new System.Drawing.Point(220, 38);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(171, 30);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Finalizar compra";
             // 
             // dgvProductos
             // 
@@ -344,6 +485,10 @@ namespace MAD.Forms
             this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panelPago.ResumeLayout(false);
+            this.panelPago.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupPagar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -355,8 +500,6 @@ namespace MAD.Forms
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label lblTotal;
@@ -378,5 +521,16 @@ namespace MAD.Forms
         private System.Windows.Forms.TextBox tbxNombreProducto;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dgvProductos;
+        public System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Panel panelPago;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown nupPagar;
+        private System.Windows.Forms.ComboBox cbxMetodosPago;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button3;
     }
 }
