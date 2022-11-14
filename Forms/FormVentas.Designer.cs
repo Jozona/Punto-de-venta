@@ -130,7 +130,7 @@ namespace MAD.Forms
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button3.ForeColor = System.Drawing.SystemColors.Control;
-            this.button3.Location = new System.Drawing.Point(427, 494);
+            this.button3.Location = new System.Drawing.Point(427, 507);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(147, 60);
             this.button3.TabIndex = 74;

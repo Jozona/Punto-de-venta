@@ -1,3 +1,5 @@
+DROP DATABASE PuntoDeVenta;
+
 use PuntoDeVenta;
 
 INSERT INTO Usuarios(usuario, contra, rol) VALUES('admin', 'admin', 1);
@@ -6,19 +8,39 @@ INSERT INTO Administrador(usuario) VALUES('admin');
 
 --VIEWS
 
+--View para los productos a vender
 IF OBJECT_ID('[Productos para la caja]') IS NOT NULL
 	drop view [Productos para la caja];
 GO
 CREATE VIEW [Productos para la caja] AS
 SELECT cod_producto, nombre, costo, precio_unitario
 FROM Producto
-WHERE existencia > 0;
+WHERE existencia > 0 AND estatus = 1;
 
 GO
 If OBJECT_ID('[Productos para la caja]') IS NOT NULL
 	Print 'View creada: [Productos para la caja]'
 
 
+--View de reporte de ventas
+IF OBJECT_ID('[Reporte de ventas]') IS NOT NULL
+	drop view [Reporte de ventas];
+GO
+CREATE VIEW [Reporte de ventas] AS
+	SELECT Recibo.fecha_venta, Departamento.nombre, ProductoComprado.cod_producto, CONVERT(DECIMAL(10,2), ProductoComprado.precio_producto) as Precio_Unitario, ProductoComprado.cantidad, CONVERT(DECIMAL(10,2),Recibo.subtotal) as Subtotal, CONVERT(DECIMAL(10,2),Recibo.descuento) as Descuento, Recibo.num_recibo, CONVERT(DECIMAL(10,2),(ProductoComprado.precio_producto - Producto.costo)) as Utilidad FROM Recibo
+	INNER JOIN ProductoComprado 
+	ON Recibo.num_recibo = ProductoComprado.num_recibo
+	INNER JOIN Producto 
+	ON ProductoComprado.cod_producto = Producto.cod_producto
+	INNER JOIN Departamento
+	ON Producto.cve_departamento=Departamento.clave_departamento;
+
+GO
+If OBJECT_ID('[Reporte de ventas]') IS NOT NULL
+	Print 'View creada: [Reporte de ventas]'
+
+
+	
 
 
 
@@ -398,7 +420,8 @@ CREATE PROCEDURE sp_GestionCajas(
 		@id_admin TINYINT = NULL,
 		@id_cajero TINYINT = NULL,
 		@num_caja TINYINT = NULL,
-		@cajero TINYINT = NULL
+		@cajero TINYINT = NULL,
+		@metodo VARCHAR(45) = NULL
 
 )AS	
 BEGIN
@@ -461,6 +484,20 @@ BEGIN
 			WHERE num_caja = @num_caja;	
 	END
 
+	--Metodos de pago
+	IF @operacion = 'MP'
+	BEGIN
+			SELECT id_metodo, metodo FROM MetodosPago;
+
+	END
+
+	--Buscar el ID del metodo de pago
+	IF @operacion = 'BM'
+	BEGIN
+			SELECT id_metodo FROM MetodosPago where metodo = @metodo;
+
+	END
+
 END
 GO
 
@@ -481,7 +518,9 @@ CREATE PROCEDURE sp_GestionRecibos(
 		@precioProducto SMALLMONEY = NULL,
 		@cantidadProducto SMALLMONEY = NULL,
 		@codProducto INT = NULL,
-		@numRecibo INT = NULL
+		@numRecibo INT = NULL,
+		@metodoPago INT = NULL,
+		@cantidadPago SMALLMONEY = NULL
 )AS	
 BEGIN
 	DECLARE @Fecha as date
@@ -514,8 +553,44 @@ BEGIN
 		
 	END
 
+	-- Asociar los pagos con cada recibo
+	IF @operacion = 'RP'
+	BEGIN
+
+			INSERT INTO Pago(num_recibo, id_metodo, cantidadPago)
+			VALUES(@numRecibo, @metodoPago, @cantidadPago);
+		
+	END
+
 END
 GO
+
+
+--Procedure de reportes
+IF OBJECT_ID('sp_Reportes') IS NOT NULL
+BEGIN
+	DROP PROCEDURE sp_Reportes
+END
+GO
+CREATE PROCEDURE sp_Reportes(
+		@operacion VARCHAR(2) = NULL
+)AS	
+BEGIN
+
+	-- Reporte de ventas
+	IF @operacion = 'V'
+	BEGIN
+
+		SELECT * FROM [Reporte de ventas];
+		
+	END
+
+
+END
+GO
+
+
+
 
 INSERT INTO Recibo(descuento, subtotal, total, fecha_venta)
 			VALUES(2, 2, 2, GetDate());
@@ -532,6 +607,8 @@ Select * from DatosCajero
 Select * from Administrador
 SELECT * FROM Recibo;
 SELECT * FROM ProductoComprado;
+SELECT * FROM MetodosPago;
+SELECT * FROM Pago;
 
 update Caja set cajero = 1 where num_caja=2;
 

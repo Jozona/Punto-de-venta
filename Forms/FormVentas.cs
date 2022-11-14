@@ -242,6 +242,7 @@ namespace MAD.Forms
             button3.Visible = false;
             panelPago.Visible = false;
             //Hacer una funcion para borrar la lista de pagos
+            LaCuenta.Clear();
         }
 
         private void button2_Click_1(object sender, EventArgs e)
