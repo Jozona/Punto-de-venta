@@ -26,6 +26,9 @@ namespace MAD
         private int tempIndex;
         private Form activeForm;
         int cajaGbl = -1;
+
+        string userProxy;
+        int cajaActual = -1;
         public Form1(string rol, string username, int caja)
         {
             InitializeComponent();
@@ -40,6 +43,10 @@ namespace MAD
             lblFecha.Text = DateTime.Now.ToString("MMM dd yyyy,hh:mm");
             timer1.Start();
             cajaGbl = caja;
+
+            userProxy = username;
+            cajaActual = caja;
+
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -115,7 +122,7 @@ namespace MAD
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FormVentas(), sender);
+            OpenChildForm(new Forms.FormVentas(userProxy, cajaActual), sender);
         }
 
         private void iconButton2_Click(object sender, EventArgs e)

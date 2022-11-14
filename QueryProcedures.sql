@@ -1,4 +1,3 @@
-DROP DATABASE PuntoDeVenta;
 
 use PuntoDeVenta;
 
@@ -27,7 +26,7 @@ IF OBJECT_ID('[Reporte de ventas]') IS NOT NULL
 	drop view [Reporte de ventas];
 GO
 CREATE VIEW [Reporte de ventas] AS
-	SELECT Recibo.fecha_venta, Departamento.nombre, ProductoComprado.cod_producto, CONVERT(DECIMAL(10,2), ProductoComprado.precio_producto) as Precio_Unitario, ProductoComprado.cantidad, CONVERT(DECIMAL(10,2),Recibo.subtotal) as Subtotal, CONVERT(DECIMAL(10,2),Recibo.descuento) as Descuento, Recibo.num_recibo, CONVERT(DECIMAL(10,2),(ProductoComprado.precio_producto - Producto.costo)) as Utilidad FROM Recibo
+	SELECT Recibo.fecha_venta, Departamento.nombre, ProductoComprado.cod_producto, CONVERT(DECIMAL(10,2), ProductoComprado.precio_producto) as Precio_Unitario, ProductoComprado.cantidad, CONVERT(DECIMAL(10,2),Recibo.subtotal) as Subtotal, CONVERT(DECIMAL(10,2),Recibo.descuento) as Descuento, Recibo.num_recibo, CONVERT(DECIMAL(10,2),((ProductoComprado.precio_producto - Producto.costo) * ProductoComprado.cantidad)) as Utilidad, Recibo.caja FROM Recibo
 	INNER JOIN ProductoComprado 
 	ON Recibo.num_recibo = ProductoComprado.num_recibo
 	INNER JOIN Producto 
@@ -64,8 +63,8 @@ BEGIN
 END
 GO
 
-EXEC sp_Login @usuario = 'admin2', @contra = 'adminn';
-GO
+--EXEC sp_Login @usuario = 'admin2', @contra = 'adminn';
+--GO
 
 --Gestion de usuarios
 IF OBJECT_ID('sp_GestionCajeros') IS NOT NULL
@@ -200,7 +199,6 @@ BEGIN
 			
 			
 		END
-		
 
 END
 GO
@@ -520,7 +518,9 @@ CREATE PROCEDURE sp_GestionRecibos(
 		@codProducto INT = NULL,
 		@numRecibo INT = NULL,
 		@metodoPago INT = NULL,
-		@cantidadPago SMALLMONEY = NULL
+		@cantidadPago SMALLMONEY = NULL,
+		@idCaja INT = null,
+		@idCajero INT = null
 )AS	
 BEGIN
 	DECLARE @Fecha as date
@@ -529,8 +529,8 @@ BEGIN
 	-- Crear el recibo
 	IF @operacion = 'I'
 	BEGIN
-			INSERT INTO Recibo(descuento, subtotal, total, fecha_venta)
-			VALUES(@descuento, @subtotal, @total, @Fecha);
+			INSERT INTO Recibo(descuento, subtotal, total, fecha_venta, caja, cajero)
+			VALUES(@descuento, @subtotal, @total, @Fecha, @idCaja, @idCajero);
 
 		
 	END

@@ -35,7 +35,7 @@ namespace MAD.FormsAdmin
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxCaja = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbxDepartamento = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -66,11 +66,11 @@ namespace MAD.FormsAdmin
             // dateTimePicker2
             // 
             this.dateTimePicker2.Location = new System.Drawing.Point(322, 61);
-            this.dateTimePicker2.MaxDate = new System.DateTime(2022, 11, 13, 0, 0, 0, 0);
+            this.dateTimePicker2.MaxDate = new System.DateTime(2022, 11, 19, 0, 0, 0, 0);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(143, 23);
             this.dateTimePicker2.TabIndex = 2;
-            this.dateTimePicker2.Value = new System.DateTime(2022, 11, 13, 0, 0, 0, 0);
+            this.dateTimePicker2.Value = new System.DateTime(2022, 11, 12, 0, 0, 0, 0);
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // label1
@@ -100,12 +100,12 @@ namespace MAD.FormsAdmin
             this.label3.TabIndex = 5;
             this.label3.Text = "Fecha final";
             // 
-            // textBox1
+            // tbxCaja
             // 
-            this.textBox1.Location = new System.Drawing.Point(573, 61);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(113, 23);
-            this.textBox1.TabIndex = 6;
+            this.tbxCaja.Location = new System.Drawing.Point(573, 61);
+            this.tbxCaja.Name = "tbxCaja";
+            this.tbxCaja.Size = new System.Drawing.Size(113, 23);
+            this.tbxCaja.TabIndex = 6;
             // 
             // label4
             // 
@@ -154,7 +154,7 @@ namespace MAD.FormsAdmin
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbxDepartamento);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbxCaja);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -163,6 +163,7 @@ namespace MAD.FormsAdmin
             this.Controls.Add(this.dgvReporteVentas);
             this.Name = "FormReporteVenta";
             this.Text = "FormReporteVenta";
+            this.Load += new System.EventHandler(this.FormReporteVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporteVentas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -177,7 +178,7 @@ namespace MAD.FormsAdmin
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxCaja;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbxDepartamento;
         private System.Windows.Forms.Label label5;

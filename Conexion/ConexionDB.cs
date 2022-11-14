@@ -121,7 +121,7 @@ namespace MAD.Conexion
                 cmd.Parameters.Add(new SqlParameter("@apellido_paterno", apellido_paterno));
                 cmd.Parameters.Add(new SqlParameter("@curp", curp));
                 cmd.Parameters.Add(new SqlParameter("@fecha_nacimiento", fecha_nacimiento));
-                cmd.Parameters.Add(new SqlParameter("@num_nomina", Int32.Parse(num_nomina)));
+                cmd.Parameters.Add(new SqlParameter("@num_nomina", num_nomina));
                 cmd.Parameters.Add(new SqlParameter("@email", email));
                 cmd.Parameters.Add(new SqlParameter("@id_admin", Convert.ToInt32(GetIdAdmin(usernameAdmin))));
                 cmd.Parameters.Add(new SqlParameter("@id_cajero", Convert.ToInt32(GetIdCajero(username))));
@@ -927,14 +927,14 @@ namespace MAD.Conexion
 
         #region Recibos
         //Funciones del recibo
-        public int CrearRecibo(List<Forms.ProductoVenta> Carrito, List<Forms.Pagos> Pagos ,decimal descuento, decimal subtotal, decimal total)
+        public int CrearRecibo(List<Forms.ProductoVenta> Carrito, List<Forms.Pagos> Pagos ,decimal descuento, decimal subtotal, decimal total, string cajero, int caja)
         {
 
             //En esta funcion vamos a crear todo lo relacionado con los recibos
             try
             {
                 //Primero generamos el recibo con los datos que necesita
-                GenerarRecibo(descuento, subtotal, total);
+                GenerarRecibo(descuento, subtotal, total, caja, GetIdCajero(cajero));
 
                 //Despues conseguimos el numero del recibo que acabamos de crear
                 decimal numRecibo = IdUltimoRecibo();
@@ -1005,7 +1005,7 @@ namespace MAD.Conexion
 
         }
 
-        private int GenerarRecibo(decimal descuento, decimal subtotal, decimal total) {
+        private int GenerarRecibo(decimal descuento, decimal subtotal, decimal total, int caja, int cajero) {
             try
             {
                 //Nos conectamos a la base de datos
@@ -1021,6 +1021,8 @@ namespace MAD.Conexion
                 cmd.Parameters.Add(new SqlParameter("@operacion", "I"));
                 cmd.Parameters.Add(new SqlParameter("@descuento", (object)descuento));
                 cmd.Parameters.Add(new SqlParameter("@subtotal", (object)subtotal));
+                cmd.Parameters.Add(new SqlParameter("@idCaja", (object)caja));
+                cmd.Parameters.Add(new SqlParameter("@idCajero", (object)cajero));
                 cmd.Parameters.Add(new SqlParameter("@total", (object)total));
 
                 //Ejecutamos el comando

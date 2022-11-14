@@ -18,7 +18,10 @@ namespace MAD.Forms
         decimal descuento = 0;
         List<ProductoVenta> Carrito = new List<ProductoVenta>();
         List<Pagos> LaCuenta = new List<Pagos>();
-        public FormVentas()
+
+        string cajero = "";
+        int cajaActual = -1;
+        public FormVentas(string username, int caja)
         {
             InitializeComponent();
             dtvCarrito.AllowUserToOrderColumns = true;
@@ -41,6 +44,9 @@ namespace MAD.Forms
             {
                 cbxMetodosPago.Items.Add(metodo);
             }
+
+            cajero = username;
+            cajaActual = caja;
 
         }
 
@@ -308,7 +314,7 @@ namespace MAD.Forms
                 }
                 else {
                     var db = new ConexionDB();
-                    int recibo = db.CrearRecibo(Carrito, LaCuenta ,descuento, subtotal, subtotal);
+                    int recibo = db.CrearRecibo(Carrito, LaCuenta ,descuento, subtotal, subtotal, cajero, cajaActual);
                     if (recibo != -1)
                     {
                         MessageBox.Show("El recibo fue creado correctamente");

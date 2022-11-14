@@ -1,3 +1,7 @@
+DROP DATABASE PuntoDeVenta;
+
+CREATE DATABASE otra;
+use otra;
 CREATE database PuntoDeVenta;
 Go
 use PuntoDeVenta;
@@ -199,6 +203,8 @@ CREATE TABLE Recibo(
 	subtotal SMALLMONEY NOT NULL,
 	total SMALLMONEY NOT NULL,
 	fecha_venta DATETIME DEFAULT CURRENT_TIMESTAMP,
+	caja TINYINT NOT NULL,
+	cajero TINYINT NOT NULL
 );
 If OBJECT_ID('Recibo') IS NOT NULL
 	Print 'Tabla creada: Recibo'
@@ -338,6 +344,17 @@ ALTER TABLE Pago
 ADD CONSTRAINT fk_Pagometodo
 FOREIGN KEY (id_metodo)
 REFERENCES MetodosPago(id_metodo);
+
+------
+ALTER TABLE Recibo
+ADD CONSTRAINT fk_CajaAutor
+FOREIGN KEY (caja)
+REFERENCES Caja(num_caja);
+
+ALTER TABLE Recibo
+ADD CONSTRAINT fk_CajeroAutor
+FOREIGN KEY (cajero)
+REFERENCES Cajero(id_cajero);
 
 ------
 ALTER TABLE ProductoComprado
