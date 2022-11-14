@@ -48,6 +48,16 @@ namespace MAD.FormsAdmin
 
         }
 
+        private void dateTimePicker1_DropDown(object sender, EventArgs e)
+        {
+            fechaInicio = true;
+        }
+
+        private void dateTimePicker2_DropDown(object sender, EventArgs e)
+        {
+            fechaFinal = true;
+        }
+
         private void btnBuscarReporteVenta_Click(object sender, EventArgs e)
         {
 

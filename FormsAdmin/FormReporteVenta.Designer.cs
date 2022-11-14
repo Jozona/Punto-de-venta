@@ -62,6 +62,7 @@ namespace MAD.FormsAdmin
             this.dateTimePicker1.Size = new System.Drawing.Size(143, 23);
             this.dateTimePicker1.TabIndex = 1;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dateTimePicker1.DropDown += new System.EventHandler(this.dateTimePicker1_DropDown);
             // 
             // dateTimePicker2
             // 
@@ -72,6 +73,7 @@ namespace MAD.FormsAdmin
             this.dateTimePicker2.TabIndex = 2;
             this.dateTimePicker2.Value = new System.DateTime(2022, 11, 12, 0, 0, 0, 0);
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            this.dateTimePicker2.DropDown += new System.EventHandler(this.dateTimePicker2_DropDown);
             // 
             // label1
             // 
