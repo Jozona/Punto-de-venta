@@ -29,188 +29,157 @@ namespace MAD.FormsAdmin
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.FechaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCajero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnidadesVendidas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SumaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SumaUtilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label24 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaF = new System.Windows.Forms.DateTimePicker();
             this.label23 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dtpFechaI = new System.Windows.Forms.DateTimePicker();
+            this.cmbCajero = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.dgvReporteCajero = new System.Windows.Forms.DataGridView();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReporteCajero)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FechaVenta,
-            this.NombreCajero,
-            this.Departamento,
-            this.UnidadesVendidas,
-            this.SumaVenta,
-            this.SumaUtilidad});
-            this.dataGridView3.Location = new System.Drawing.Point(129, 171);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowTemplate.Height = 25;
-            this.dataGridView3.Size = new System.Drawing.Size(644, 499);
-            this.dataGridView3.TabIndex = 55;
-            // 
-            // FechaVenta
-            // 
-            this.FechaVenta.HeaderText = "FechaVenta";
-            this.FechaVenta.Name = "FechaVenta";
-            this.FechaVenta.ReadOnly = true;
-            // 
-            // NombreCajero
-            // 
-            this.NombreCajero.HeaderText = "NombreCajero";
-            this.NombreCajero.Name = "NombreCajero";
-            this.NombreCajero.ReadOnly = true;
-            // 
-            // Departamento
-            // 
-            this.Departamento.HeaderText = "Departamento";
-            this.Departamento.Name = "Departamento";
-            this.Departamento.ReadOnly = true;
-            // 
-            // UnidadesVendidas
-            // 
-            this.UnidadesVendidas.HeaderText = "UnidadesVendidas";
-            this.UnidadesVendidas.Name = "UnidadesVendidas";
-            this.UnidadesVendidas.ReadOnly = true;
-            // 
-            // SumaVenta
-            // 
-            this.SumaVenta.HeaderText = "SumaVenta";
-            this.SumaVenta.Name = "SumaVenta";
-            this.SumaVenta.ReadOnly = true;
-            // 
-            // SumaUtilidad
-            // 
-            this.SumaUtilidad.HeaderText = "SumaUtilidad";
-            this.SumaUtilidad.Name = "SumaUtilidad";
-            this.SumaUtilidad.ReadOnly = true;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label24.Location = new System.Drawing.Point(282, 33);
+            this.label24.Location = new System.Drawing.Point(356, 33);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(113, 30);
             this.label24.TabIndex = 59;
             this.label24.Text = "Fecha final";
             // 
-            // dateTimePicker2
+            // dtpFechaF
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker2.Location = new System.Drawing.Point(244, 66);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 29);
-            this.dateTimePicker2.TabIndex = 58;
+            this.dtpFechaF.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpFechaF.Location = new System.Drawing.Point(318, 66);
+            this.dtpFechaF.Name = "dtpFechaF";
+            this.dtpFechaF.Size = new System.Drawing.Size(200, 29);
+            this.dtpFechaF.TabIndex = 58;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label23.Location = new System.Drawing.Point(48, 33);
+            this.label23.Location = new System.Drawing.Point(122, 33);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(126, 30);
             this.label23.TabIndex = 57;
             this.label23.Text = "Fecha inicial";
             // 
-            // dateTimePicker1
+            // dtpFechaI
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 66);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 29);
-            this.dateTimePicker1.TabIndex = 56;
+            this.dtpFechaI.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpFechaI.Location = new System.Drawing.Point(86, 66);
+            this.dtpFechaI.Name = "dtpFechaI";
+            this.dtpFechaI.Size = new System.Drawing.Size(200, 29);
+            this.dtpFechaI.TabIndex = 56;
             // 
-            // comboBox1
+            // cmbCajero
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(480, 66);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(220, 29);
-            this.comboBox1.TabIndex = 61;
+            this.cmbCajero.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbCajero.FormattingEnabled = true;
+            this.cmbCajero.Location = new System.Drawing.Point(554, 66);
+            this.cmbCajero.Name = "cmbCajero";
+            this.cmbCajero.Size = new System.Drawing.Size(220, 29);
+            this.cmbCajero.TabIndex = 61;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(552, 33);
+            this.label1.Location = new System.Drawing.Point(626, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 30);
             this.label1.TabIndex = 60;
             this.label1.Text = "Cajero";
             // 
-            // comboBox2
+            // cmbDepartamento
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(738, 66);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(220, 29);
-            this.comboBox2.TabIndex = 63;
+            this.cmbDepartamento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbDepartamento.FormattingEnabled = true;
+            this.cmbDepartamento.Location = new System.Drawing.Point(812, 66);
+            this.cmbDepartamento.Name = "cmbDepartamento";
+            this.cmbDepartamento.Size = new System.Drawing.Size(220, 29);
+            this.cmbDepartamento.TabIndex = 63;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(769, 33);
+            this.label2.Location = new System.Drawing.Point(843, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(147, 30);
             this.label2.TabIndex = 62;
             this.label2.Text = "Departamento";
             // 
+            // dgvReporteCajero
+            // 
+            this.dgvReporteCajero.AllowUserToAddRows = false;
+            this.dgvReporteCajero.AllowUserToDeleteRows = false;
+            this.dgvReporteCajero.AllowUserToResizeColumns = false;
+            this.dgvReporteCajero.AllowUserToResizeRows = false;
+            this.dgvReporteCajero.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvReporteCajero.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReporteCajero.Location = new System.Drawing.Point(86, 250);
+            this.dgvReporteCajero.Name = "dgvReporteCajero";
+            this.dgvReporteCajero.ReadOnly = true;
+            this.dgvReporteCajero.RowHeadersVisible = false;
+            this.dgvReporteCajero.RowTemplate.Height = 25;
+            this.dgvReporteCajero.Size = new System.Drawing.Size(946, 332);
+            this.dgvReporteCajero.TabIndex = 65;
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.BackColor = System.Drawing.Color.Transparent;
+            this.btnFiltrar.FlatAppearance.BorderSize = 0;
+            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltrar.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnFiltrar.Location = new System.Drawing.Point(483, 153);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(144, 52);
+            this.btnFiltrar.TabIndex = 64;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = false;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
             // FormReporteCajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(970, 682);
-            this.Controls.Add(this.comboBox2);
+            this.ClientSize = new System.Drawing.Size(1172, 635);
+            this.Controls.Add(this.dgvReporteCajero);
+            this.Controls.Add(this.btnFiltrar);
+            this.Controls.Add(this.cmbDepartamento);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbCajero);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label24);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dtpFechaF);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.dataGridView3);
+            this.Controls.Add(this.dtpFechaI);
             this.Name = "FormReporteCajero";
             this.Text = "FormReporteCajero";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.Load += new System.EventHandler(this.FormReporteCajero_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReporteCajero)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaVenta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCajero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Departamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnidadesVendidas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SumaVenta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SumaUtilidad;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpFechaF;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dtpFechaI;
+        private System.Windows.Forms.ComboBox cmbCajero;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbDepartamento;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dgvReporteCajero;
+        private System.Windows.Forms.Button btnFiltrar;
     }
 }

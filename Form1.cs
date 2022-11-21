@@ -223,7 +223,7 @@ namespace MAD
 
         private void iconButton8_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormsAdmin.FormDevolucion(), sender);
+            OpenChildForm(new FormsAdmin.FormDevolucion(lblUser.Text), sender);
         }
 
         private void iconButton9_Click(object sender, EventArgs e)

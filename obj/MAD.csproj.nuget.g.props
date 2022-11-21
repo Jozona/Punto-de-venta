@@ -16,4 +16,10 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
+<<<<<<< Updated upstream
+=======
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMicrosoft_Web_WebView2 Condition=" '$(PkgMicrosoft_Web_WebView2)' == '' ">C:\Users\Jahir\.nuget\packages\microsoft.web.webview2\1.0.1418.22</PkgMicrosoft_Web_WebView2>
+  </PropertyGroup>
+>>>>>>> Stashed changes
 </Project>

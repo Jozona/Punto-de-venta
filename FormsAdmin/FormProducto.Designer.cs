@@ -30,7 +30,9 @@ namespace MAD.FormsAdmin
         private void InitializeComponent()
         {
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnCancelarDesc = new System.Windows.Forms.Button();
+            this.txtIdDesc = new System.Windows.Forms.TextBox();
+            this.btnAplicarDesc = new System.Windows.Forms.Button();
             this.numDescuento = new System.Windows.Forms.NumericUpDown();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -76,7 +78,9 @@ namespace MAD.FormsAdmin
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.button4);
+            this.tabPage4.Controls.Add(this.btnCancelarDesc);
+            this.tabPage4.Controls.Add(this.txtIdDesc);
+            this.tabPage4.Controls.Add(this.btnAplicarDesc);
             this.tabPage4.Controls.Add(this.numDescuento);
             this.tabPage4.Controls.Add(this.label25);
             this.tabPage4.Controls.Add(this.label24);
@@ -94,17 +98,42 @@ namespace MAD.FormsAdmin
             this.tabPage4.Text = "Aplicar descuentos";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnCancelarDesc
             // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button4.Location = new System.Drawing.Point(545, 411);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(144, 52);
-            this.button4.TabIndex = 51;
-            this.button4.Text = "Aplicar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnCancelarDesc.FlatAppearance.BorderSize = 0;
+            this.btnCancelarDesc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarDesc.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCancelarDesc.Location = new System.Drawing.Point(689, 452);
+            this.btnCancelarDesc.Name = "btnCancelarDesc";
+            this.btnCancelarDesc.Size = new System.Drawing.Size(144, 52);
+            this.btnCancelarDesc.TabIndex = 53;
+            this.btnCancelarDesc.Text = "Cancelar";
+            this.btnCancelarDesc.UseVisualStyleBackColor = true;
+            this.btnCancelarDesc.Visible = false;
+            // 
+            // txtIdDesc
+            // 
+            this.txtIdDesc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIdDesc.Enabled = false;
+            this.txtIdDesc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtIdDesc.Location = new System.Drawing.Point(6, 6);
+            this.txtIdDesc.Name = "txtIdDesc";
+            this.txtIdDesc.Size = new System.Drawing.Size(31, 29);
+            this.txtIdDesc.TabIndex = 52;
+            this.txtIdDesc.Visible = false;
+            // 
+            // btnAplicarDesc
+            // 
+            this.btnAplicarDesc.FlatAppearance.BorderSize = 0;
+            this.btnAplicarDesc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAplicarDesc.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAplicarDesc.Location = new System.Drawing.Point(461, 452);
+            this.btnAplicarDesc.Name = "btnAplicarDesc";
+            this.btnAplicarDesc.Size = new System.Drawing.Size(144, 52);
+            this.btnAplicarDesc.TabIndex = 51;
+            this.btnAplicarDesc.Text = "Aplicar";
+            this.btnAplicarDesc.UseVisualStyleBackColor = true;
+            this.btnAplicarDesc.Click += new System.EventHandler(this.btnAplicarDesc_Click);
             // 
             // numDescuento
             // 
@@ -163,6 +192,7 @@ namespace MAD.FormsAdmin
             // 
             // txtNombre2
             // 
+            this.txtNombre2.Enabled = false;
             this.txtNombre2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtNombre2.Location = new System.Drawing.Point(433, 113);
             this.txtNombre2.Name = "txtNombre2";
@@ -194,6 +224,7 @@ namespace MAD.FormsAdmin
             this.dgvProducto2.RowTemplate.Height = 25;
             this.dgvProducto2.Size = new System.Drawing.Size(353, 502);
             this.dgvProducto2.TabIndex = 41;
+            this.dgvProducto2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto2_CellClick);
             // 
             // tabPage1
             // 
@@ -326,6 +357,7 @@ namespace MAD.FormsAdmin
             this.dgvProducto1.Size = new System.Drawing.Size(383, 279);
             this.dgvProducto1.TabIndex = 38;
             this.dgvProducto1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto1_CellClick);
+            this.dgvProducto1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto1_CellContentClick);
             // 
             // txtUnidadM
             // 
@@ -510,7 +542,7 @@ namespace MAD.FormsAdmin
         #endregion
 
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnAplicarDesc;
         private System.Windows.Forms.NumericUpDown numDescuento;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
@@ -546,5 +578,7 @@ namespace MAD.FormsAdmin
         private System.Windows.Forms.TextBox txtCosto;
         private System.Windows.Forms.Button btn_Cancelar;
         private System.Windows.Forms.TextBox txtIdProd;
+        private System.Windows.Forms.TextBox txtIdDesc;
+        private System.Windows.Forms.Button btnCancelarDesc;
     }
 }

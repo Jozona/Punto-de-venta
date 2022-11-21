@@ -1,3 +1,10 @@
+<<<<<<< Updated upstream
+=======
+--DROP DATABASE PuntoDeVenta;
+
+--CREATE DATABASE otra;
+--use Lab;
+>>>>>>> Stashed changes
 CREATE database PuntoDeVenta;
 Go
 use PuntoDeVenta;
@@ -82,42 +89,19 @@ If OBJECT_ID('Departamento') IS NOT NULL
 	Print 'Tabla creada: Departamento'
 
 
--------------------
-IF OBJECT_ID('Devolucion') IS NOT NULL
-	drop table Devolucion;
-CREATE TABLE Devolucion(
-    id_devolucion TINYINT IDENTITY(1,1) PRIMARY KEY,  
-	fecha_devolucion DATE NOT NULL,
-	id_admin TINYINT,
-	id_motivo TINYINT
-);
-If OBJECT_ID('Devolucion') IS NOT NULL
-	Print 'Tabla creada: Devolucion'
 
-
--------------------
-IF OBJECT_ID('MotivosDevolucion') IS NOT NULL
-	drop table MotivosDevolucion;
-CREATE TABLE MotivosDevolucion(
-    id_motivo TINYINT IDENTITY(1,1) PRIMARY KEY,  
-	motivo VARCHAR(30) NOT NULL,
-);
-If OBJECT_ID('MotivosDevolucion') IS NOT NULL
-	Print 'Tabla creada: MotivosDevolucion'
-
-	
 -------------------
 IF OBJECT_ID('Producto') IS NOT NULL
 	drop table Producto;
 CREATE TABLE Producto(
     cod_producto INT IDENTITY(1,1) PRIMARY KEY,  
-	nombre VARCHAR(30) NOT NULL,
+	nombre VARCHAR(50) NOT NULL,
 	descripcion VARCHAR(50)NOT NULL,
 	costo SMALLMONEY NOT NULL,
 	precio_unitario SMALLMONEY NOT NULL,
-	existencia SMALLINT NOT NULL,
-	merma TINYINT DEFAULT 0,
-	punto_reorden TINYINT NOT NULL,
+	existencia DECIMAL(10,2) NOT NULL,
+	merma DECIMAL(10,2) DEFAULT 0,
+	punto_reorden DECIMAL(10,2) NOT NULL,
 	estatus BIT NOT NULL,
 	fecha_alta DATETIME DEFAULT CURRENT_TIMESTAMP,
 	cve_departamento VARCHAR(5),
@@ -160,6 +144,7 @@ CREATE TABLE Descuento(
 	fecha_inicio DATE NOT NULL,
 	fecha_final DATE NOT NULL,
 	cantidad TINYINT NOT NULL,
+	estatus bit NOT NULL,
 	cod_producto INT
 );
 If OBJECT_ID('Descuento') IS NOT NULL
@@ -171,23 +156,12 @@ IF OBJECT_ID('Modificacion') IS NOT NULL
 	drop table Modificacion;
 CREATE TABLE Modificacion(
     id_modificacion INT IDENTITY(1,1) PRIMARY KEY, 
-	fecha_modificacion DATETIME DEFAULT CURRENT_TIMESTAMP,
-	id_tipoModificacion TINYINT,
-	cod_producto INT
+	fecha_modificacion DATETIME DEFAULT CURRENT_TIMESTAMP,	
+	cod_producto INT,
+	id_admin TINYINT,
 );
 If OBJECT_ID('Modificacion') IS NOT NULL
 	Print 'Tabla creada: Modificacion'
-
-
--------------------
-IF OBJECT_ID('TipoModificacion') IS NOT NULL
-	drop table TipoModificacion;
-CREATE TABLE TipoModificacion(
-    id_tipoModificacion TINYINT IDENTITY(1,1) PRIMARY KEY, 
-	modificacion VARCHAR(20) NOT NULL,
-);
-If OBJECT_ID('TipoModificacion') IS NOT NULL
-	Print 'Tabla creada: TipoModificacion'
 
 
 -------------------
@@ -234,7 +208,7 @@ IF OBJECT_ID('ProductoComprado') IS NOT NULL
 CREATE TABLE ProductoComprado(
     id_productoComprado INT IDENTITY(1,1) PRIMARY KEY, 
 	precio_producto SMALLMONEY NOT NULL,
-	cantidad TINYINT NOT NULL,
+	cantidad DECIMAL(10,2) NOT NULL,
 	cod_producto INT,
 	num_recibo INT,
 );
@@ -247,12 +221,27 @@ IF OBJECT_ID('NotaCredito') IS NOT NULL
 	drop table NotaCredito;
 CREATE TABLE NotaCredito(
     id_notaCredito INT IDENTITY(1,1) PRIMARY KEY, 
-	id_devolucion TINYINT,
-	id_productoComprado INT,
-	fecha_notaCredito DATETIME DEFAULT CURRENT_TIMESTAMP
+	fecha_notaCredito DATETIME DEFAULT CURRENT_TIMESTAMP,
+	total SMALLMONEY NOT NULL,
+	num_recibo INT not null,
+	id_admin TINYINT
 );
 If OBJECT_ID('NotaCredito') IS NOT NULL
 	Print 'Tabla creada: NotaCredito'
+
+	-------------------
+IF OBJECT_ID('Devolucion') IS NOT NULL
+	drop table Devolucion;
+CREATE TABLE Devolucion(
+    id_devolucion TINYINT IDENTITY(1,1) PRIMARY KEY,  
+	id_productoComprado INT,
+	id_notaCredito INT,
+	total SMALLMONEY NOT NULL,
+	cantidad DECIMAL(10,2) NOT NULL
+);
+If OBJECT_ID('Devolucion') IS NOT NULL
+	Print 'Tabla creada: Devolucion'
+
 
 
 
@@ -292,14 +281,14 @@ REFERENCES Administrador(id_admin);
 
 ------
 ALTER TABLE Devolucion
-ADD CONSTRAINT fk_Devolucionadmin
-FOREIGN KEY (id_admin)
-REFERENCES Administrador(id_admin);
+ADD CONSTRAINT fk_DevolucionProducto
+FOREIGN KEY (id_productoComprado)
+REFERENCES ProductoComprado(id_productoComprado);
 
 ALTER TABLE Devolucion
-ADD CONSTRAINT fk_Devolucionmotivo
-FOREIGN KEY (id_motivo)
-REFERENCES MotivosDevolucion(id_motivo);
+ADD CONSTRAINT fk_Devolucionnota
+FOREIGN KEY (id_notaCredito)
+REFERENCES NotaCredito(id_notaCredito);
 
 ------
 ALTER TABLE Producto
@@ -351,22 +340,18 @@ FOREIGN KEY (num_recibo)
 REFERENCES Recibo(num_recibo);
 
 ------
-ALTER TABLE NotaCredito
-ADD CONSTRAINT fk_NotaCreditodevolucion
-FOREIGN KEY (id_devolucion)
-REFERENCES Devolucion(id_devolucion);
 
 ALTER TABLE NotaCredito
-ADD CONSTRAINT fk_NotaCreditoproductoComprado
-FOREIGN KEY (id_productoComprado)
-REFERENCES ProductoComprado(id_productoComprado);
+ADD CONSTRAINT fk_NotaCreditoadmin
+FOREIGN KEY (id_admin)
+REFERENCES Administrador(id_admin);
+
+ALTER TABLE NotaCredito
+ADD CONSTRAINT fk_NotaCreditoRecibo
+FOREIGN KEY (num_recibo)
+REFERENCES Recibo(num_recibo);
 
 ------
-ALTER TABLE Modificacion
-ADD CONSTRAINT fk_ModificaciontipoModificacion
-FOREIGN KEY (id_tipoModificacion)
-REFERENCES TipoModificacion(id_tipoModificacion);
-
 ALTER TABLE Modificacion
 ADD CONSTRAINT fk_ModificacionProducto
 FOREIGN KEY (cod_producto)
