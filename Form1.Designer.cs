@@ -54,6 +54,9 @@ namespace MAD
             this.btnCerrarChildForm = new FontAwesome.Sharp.IconButton();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panelSeccion = new System.Windows.Forms.Panel();
+            this.panelGracias = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +67,8 @@ namespace MAD
             this.panelInfo.SuspendLayout();
             this.panelTitulo.SuspendLayout();
             this.panelSeccion.SuspendLayout();
+            this.panelGracias.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -491,6 +496,7 @@ namespace MAD
             // 
             this.panelSeccion.AutoSize = true;
             this.panelSeccion.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelSeccion.Controls.Add(this.panelGracias);
             this.panelSeccion.Controls.Add(this.dataGridView1);
             this.panelSeccion.Controls.Add(this.label4);
             this.panelSeccion.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -498,6 +504,35 @@ namespace MAD
             this.panelSeccion.Name = "panelSeccion";
             this.panelSeccion.Size = new System.Drawing.Size(1188, 674);
             this.panelSeccion.TabIndex = 2;
+            // 
+            // panelGracias
+            // 
+            this.panelGracias.Controls.Add(this.label1);
+            this.panelGracias.Controls.Add(this.pictureBox1);
+            this.panelGracias.Location = new System.Drawing.Point(6, 6);
+            this.panelGracias.Name = "panelGracias";
+            this.panelGracias.Size = new System.Drawing.Size(1170, 656);
+            this.panelGracias.TabIndex = 2;
+            this.panelGracias.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(526, 515);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(256, 45);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "¡Regresa pronto!";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MAD.Properties.Resources.gracias;
+            this.pictureBox1.Location = new System.Drawing.Point(189, 57);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(874, 410);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // dataGridView1
             // 
@@ -562,6 +597,9 @@ namespace MAD
             this.panelTitulo.PerformLayout();
             this.panelSeccion.ResumeLayout(false);
             this.panelSeccion.PerformLayout();
+            this.panelGracias.ResumeLayout(false);
+            this.panelGracias.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -600,6 +638,9 @@ namespace MAD
         private System.Windows.Forms.Label lblCaja;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panelGracias;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

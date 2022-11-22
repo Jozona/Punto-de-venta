@@ -9,12 +9,12 @@ namespace MAD.Forms
         private int codigo;
         private string nombre;
         private decimal precio;
-        private int cantidad;
+        private decimal cantidad;
         private decimal descuento;
         private decimal total;
         
 
-        public ProductoVenta(int codigo, string nombre, decimal precio, int cantidad) {
+        public ProductoVenta(int codigo, string nombre, decimal precio, decimal cantidad) {
             this.codigo = codigo;
             this.nombre = nombre;
             this.precio = precio;
@@ -42,7 +42,7 @@ namespace MAD.Forms
             get { return precio; }
             set { precio = value; }
         }
-        public int Cantidad
+        public decimal Cantidad
         {
             get { return cantidad; }
             set { cantidad = value; }

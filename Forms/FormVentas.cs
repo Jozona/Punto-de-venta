@@ -77,6 +77,7 @@ namespace MAD.Forms
 
         }
 
+        //agregar objetos
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -92,15 +93,22 @@ namespace MAD.Forms
             //Buscamos si el codigo de producto ingresado es correcto
             var db = new ConexionDB();
 
+            if (tbxCodigoArticulo.Text.Equals("")) {
+                MessageBox.Show("Asegurate de escoger un producto");
+                return;
+            }
+
+
+
             //Traemos el producto si esta en la bdd
-            var producto = db.BuscarProducto(Int32.Parse(tbxCodigoArticulo.Text), (int)nudCantidad.Value);
+            var producto = db.BuscarProducto(Int32.Parse(tbxCodigoArticulo.Text), (decimal)nudCantidad.Value);
             if (producto != null)
             {
 
                 //Checamos si el producto ya esta en el carrito para solo aumentar la cantidad
                 var existe = Carrito.Find(p => p.Codigo == producto.Codigo);
                 if ( existe != null) {
-                    existe.Cantidad += (int)nudCantidad.Value;
+                    existe.Cantidad += (decimal)nudCantidad.Value;
                     existe.Total = existe.Cantidad * existe.Precio;
 
                     //Regresamos los textbox vacios
@@ -138,7 +146,7 @@ namespace MAD.Forms
         }
 
         //Agregar objeto al carrito
-        public void AgregarProducto(int codigo, string nombre, decimal precio, int cantidad) {
+        public void AgregarProducto(int codigo, string nombre, decimal precio, decimal cantidad) {
             Carrito.Add(new ProductoVenta(codigo, nombre, precio, cantidad));
             var bindingList = new BindingList<ProductoVenta>(Carrito);
             var source = new BindingSource(bindingList, null);
@@ -243,6 +251,7 @@ namespace MAD.Forms
             
         }
 
+        //Cancelar
         private void button3_Click(object sender, EventArgs e)
         {
             button3.Visible = false;
@@ -251,6 +260,7 @@ namespace MAD.Forms
             LaCuenta.Clear();
         }
 
+        //Pagar
         private void button2_Click_1(object sender, EventArgs e)
         {
             if (cbxMetodosPago.Text.Equals("")) {
@@ -319,7 +329,7 @@ namespace MAD.Forms
                     {
                         MessageBox.Show("El recibo fue creado correctamente");
                         //Imprimimos 
-                        var form2 = new FormTicket(recibo);
+                        var form2 = new FormTicket(recibo, 0);
                         form2.Closed += (s, args) => this.Close();
                         form2.Show();
 
@@ -348,6 +358,11 @@ namespace MAD.Forms
 
                 }
             }
+        }
+
+        private void tbxCodigoArticulo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 

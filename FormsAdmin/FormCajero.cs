@@ -52,7 +52,10 @@ namespace MAD.FormsAdmin
         {
             var db = new ConexionDB();
             if (tbxAM.Text == "" || tbxAP.Text == "" || tbxNombre.Text == "" || tbxNomina.Text == "" || tbxCurp.Text == "" || tbxEmail.Text == "" || tbxPassword.Text == "" || tbxUsuario.Text == "")
+            {
+                MessageBox.Show("Asegurate de ingresar todos los datos");
                 return;
+            }
             db.InsertarUsuarioCajero(tbxUsuario.Text, tbxPassword.Text);
             string fechaNacimiento = dtpNacimiento.Value.ToString("yyyy-MM-dd");
             db.InsertarDatosCajero(tbxNombre.Text, tbxAM.Text, tbxAP.Text, tbxCurp.Text, fechaNacimiento, tbxNomina.Text, tbxEmail.Text, tbxUsuario.Text, admin);
@@ -80,6 +83,7 @@ namespace MAD.FormsAdmin
             tbxUsuario.Text = "";
             dtpNacimiento.Value = DateTime.Now;
             btnCancelar.Visible = false;
+            tbxUsuario.ReadOnly = false;
             button1.Visible = true;
         }
 
@@ -101,6 +105,7 @@ namespace MAD.FormsAdmin
                 userCajeroSelccionado = row.Cells["usuario"].Value.ToString();
                 btnCancelar.Visible = true;
                 button1.Visible = false;
+                tbxUsuario.ReadOnly = true;
             }
         }
 
@@ -125,6 +130,7 @@ namespace MAD.FormsAdmin
             dtpNacimiento.Value = DateTime.Now;
             btnCancelar.Visible = false;
             button1.Visible = true;
+            tbxUsuario.ReadOnly = false;
             dgvCajeros.DataSource = db.GetCajeros();
         }
 
@@ -147,6 +153,7 @@ namespace MAD.FormsAdmin
             tbxUsuario.Text = "";
             dtpNacimiento.Value = DateTime.Now;
             btnCancelar.Visible = false;
+            tbxUsuario.ReadOnly = false;
             button1.Visible = true;
             dgvCajeros.DataSource = db.GetCajeros();
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FRmvmRJMD0YJ74a+Azx+7BfSrheZwwU2HYHAXfaaLcL55ROdoCnKtpAtuP3u9+GdjxdDP3nYfxMO7Cl7zsiT8g==",
+  "dgSpecHash": "dGakyxUVUQJ0zSxm6xhVYoOLlSbXOLqti0K+AV9tZpFUkWWp4gnl9yrAEJiiegDDm6sZF6hFxqb+zOjzuePWVg==",
   "success": true,
-  "projectFilePath": "D:\\UANL 7mo\\MAD\\gitMAD\\Punto-de-venta\\MAD.csproj",
+  "projectFilePath": "C:\\Users\\forag\\OneDrive\\Desktop\\Punto-de-venta\\Punto-de-venta\\MAD.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\forag\\.nuget\\packages\\fontawesome.sharp\\6.1.1\\fontawesome.sharp.6.1.1.nupkg.sha512",
     "C:\\Users\\forag\\.nuget\\packages\\freespire.pdfviewer\\7.6.0\\freespire.pdfviewer.7.6.0.nupkg.sha512",

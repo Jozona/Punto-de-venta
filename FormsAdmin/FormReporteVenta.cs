@@ -58,6 +58,11 @@ namespace MAD.FormsAdmin
             fechaFinal = true;
         }
 
+        private void tbxCaja_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
         private void btnBuscarReporteVenta_Click(object sender, EventArgs e)
         {
 

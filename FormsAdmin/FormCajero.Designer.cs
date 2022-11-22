@@ -129,7 +129,7 @@ namespace MAD.FormsAdmin
             this.tbxAM.Location = new System.Drawing.Point(615, 60);
             this.tbxAM.Name = "tbxAM";
             this.tbxAM.Size = new System.Drawing.Size(183, 29);
-            this.tbxAM.TabIndex = 38;
+            this.tbxAM.TabIndex = 2;
             // 
             // tbxAP
             // 
@@ -137,7 +137,7 @@ namespace MAD.FormsAdmin
             this.tbxAP.Location = new System.Drawing.Point(422, 60);
             this.tbxAP.Name = "tbxAP";
             this.tbxAP.Size = new System.Drawing.Size(183, 29);
-            this.tbxAP.TabIndex = 37;
+            this.tbxAP.TabIndex = 1;
             // 
             // button1
             // 
@@ -158,7 +158,7 @@ namespace MAD.FormsAdmin
             this.tbxEmail.Location = new System.Drawing.Point(218, 173);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(183, 29);
-            this.tbxEmail.TabIndex = 35;
+            this.tbxEmail.TabIndex = 4;
             // 
             // label7
             // 
@@ -193,7 +193,7 @@ namespace MAD.FormsAdmin
             this.tbxNomina.Location = new System.Drawing.Point(218, 236);
             this.tbxNomina.Name = "tbxNomina";
             this.tbxNomina.Size = new System.Drawing.Size(183, 29);
-            this.tbxNomina.TabIndex = 31;
+            this.tbxNomina.TabIndex = 5;
             // 
             // label5
             // 
@@ -211,7 +211,7 @@ namespace MAD.FormsAdmin
             this.tbxCurp.Location = new System.Drawing.Point(218, 113);
             this.tbxCurp.Name = "tbxCurp";
             this.tbxCurp.Size = new System.Drawing.Size(183, 29);
-            this.tbxCurp.TabIndex = 29;
+            this.tbxCurp.TabIndex = 3;
             // 
             // label4
             // 
@@ -229,7 +229,7 @@ namespace MAD.FormsAdmin
             this.tbxNombre.Location = new System.Drawing.Point(218, 60);
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(183, 29);
-            this.tbxNombre.TabIndex = 27;
+            this.tbxNombre.TabIndex = 0;
             // 
             // tbxPassword
             // 
@@ -237,7 +237,7 @@ namespace MAD.FormsAdmin
             this.tbxPassword.Location = new System.Drawing.Point(615, 173);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(183, 29);
-            this.tbxPassword.TabIndex = 26;
+            this.tbxPassword.TabIndex = 7;
             // 
             // label2
             // 
@@ -255,7 +255,7 @@ namespace MAD.FormsAdmin
             this.tbxUsuario.Location = new System.Drawing.Point(615, 113);
             this.tbxUsuario.Name = "tbxUsuario";
             this.tbxUsuario.Size = new System.Drawing.Size(183, 29);
-            this.tbxUsuario.TabIndex = 24;
+            this.tbxUsuario.TabIndex = 6;
             // 
             // label1
             // 

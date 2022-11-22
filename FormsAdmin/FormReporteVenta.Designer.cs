@@ -106,8 +106,10 @@ namespace MAD.FormsAdmin
             // 
             this.tbxCaja.Location = new System.Drawing.Point(573, 61);
             this.tbxCaja.Name = "tbxCaja";
+            this.tbxCaja.ShortcutsEnabled = false;
             this.tbxCaja.Size = new System.Drawing.Size(113, 23);
             this.tbxCaja.TabIndex = 6;
+            this.tbxCaja.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCaja_KeyPress);
             // 
             // label4
             // 

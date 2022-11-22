@@ -312,6 +312,7 @@ namespace MAD.Forms
             this.tbxCodigoArticulo.Size = new System.Drawing.Size(268, 26);
             this.tbxCodigoArticulo.TabIndex = 50;
             this.tbxCodigoArticulo.TextChanged += new System.EventHandler(this.tbxCodigoArticulo_TextChanged);
+            this.tbxCodigoArticulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCodigoArticulo_KeyPress);
             // 
             // label5
             // 

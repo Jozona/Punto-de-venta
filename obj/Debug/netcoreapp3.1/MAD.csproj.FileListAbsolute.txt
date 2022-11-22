@@ -192,3 +192,113 @@ D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\Microsoft.Web.WebV
 D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\Microsoft.Web.WebView2.WinForms.dll
 D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\bin\Debug\netcoreapp3.1\Microsoft.Web.WebView2.Wpf.dll
 D:\UANL 7mo\MAD\gitMAD\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormTicket.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\WebView2Loader.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\WebView2Loader.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\WebView2Loader.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.exe
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.dll.config
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.deps.json
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.runtimeconfig.json
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.runtimeconfig.dev.json
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.pdb
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\FontAwesome.Sharp.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\Spire.Pdf.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\Spire.PdfViewer.Asp.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\Spire.PdfViewer.Forms.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\Microsoft.Web.WebView2.Core.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\Microsoft.Web.WebView2.WinForms.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\Microsoft.Web.WebView2.Wpf.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\PdfSharp.Charting.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\PdfSharp.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\de\PdfSharp.Charting.resources.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\de\PdfSharp.resources.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.csproj.AssemblyReference.cache
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Form1.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormCajas.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormCajero.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormConsultaRecibos.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormDepartamento.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormDevolucion.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormInventario.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormProducto.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormReporteCajero.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormReporteVenta.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Forms.FormEscogerCaja.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Forms.FormReportes.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Forms.FormVentas.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Forms.Pago.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormTicket.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.inicioCaja.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.login.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Properties.Resources.resources
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.csproj.GenerateResource.cache
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.GeneratedMSBuildEditorConfig.editorconfig
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.AssemblyInfoInputs.cache
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.AssemblyInfo.cs
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.csproj.CoreCompileInputs.cache
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.csproj.CopyComplete
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.dll
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.pdb
+D:\FCFM\7to Semestre\MAD\Proyecto\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.genruntimeconfig.cache
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.exe
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.dll.config
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.deps.json
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.runtimeconfig.json
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.runtimeconfig.dev.json
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\MAD.pdb
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\FontAwesome.Sharp.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\Spire.Pdf.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\Spire.PdfViewer.Asp.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\Spire.PdfViewer.Forms.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\Microsoft.Web.WebView2.Core.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\PdfSharp.Charting.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\PdfSharp.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\de\PdfSharp.Charting.resources.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\de\PdfSharp.resources.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.csproj.AssemblyReference.cache
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Form1.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormCajas.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormCajero.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormConsultaRecibos.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormDepartamento.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormDevolucion.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormInventario.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormProducto.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormReporteCajero.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormsAdmin.FormReporteVenta.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Forms.FormEscogerCaja.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Forms.FormReportes.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Forms.FormVentas.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Forms.Pago.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.FormTicket.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.inicioCaja.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.login.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.Properties.Resources.resources
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.csproj.GenerateResource.cache
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.AssemblyInfoInputs.cache
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.AssemblyInfo.cs
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.csproj.CoreCompileInputs.cache
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.csproj.CopyComplete
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.dll
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.pdb
+C:\Users\forag\OneDrive\Desktop\Punto-de-venta\Punto-de-venta\obj\Debug\netcoreapp3.1\MAD.genruntimeconfig.cache

@@ -29,101 +29,45 @@ namespace MAD.FormsAdmin
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.Departamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnidadMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnidadesVendidas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Merma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dgvInventario = new System.Windows.Forms.DataGridView();
+            this.cmbDepartamentoInventario = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.numExistencia = new System.Windows.Forms.NumericUpDown();
             this.label15 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.ckbAgotados = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.ckbMerma = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numExistencia)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView3
+            // dgvInventario
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Departamento,
-            this.Producto,
-            this.UnidadMedida,
-            this.Costo,
-            this.PrecioUnitario,
-            this.Subtotal,
-            this.UnidadesVendidas,
-            this.Merma});
-            this.dataGridView3.Location = new System.Drawing.Point(66, 171);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowTemplate.Height = 25;
-            this.dataGridView3.Size = new System.Drawing.Size(843, 499);
-            this.dataGridView3.TabIndex = 54;
+            this.dgvInventario.AllowUserToAddRows = false;
+            this.dgvInventario.AllowUserToDeleteRows = false;
+            this.dgvInventario.AllowUserToResizeColumns = false;
+            this.dgvInventario.AllowUserToResizeRows = false;
+            this.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInventario.Location = new System.Drawing.Point(66, 171);
+            this.dgvInventario.Name = "dgvInventario";
+            this.dgvInventario.ReadOnly = true;
+            this.dgvInventario.RowHeadersVisible = false;
+            this.dgvInventario.RowTemplate.Height = 25;
+            this.dgvInventario.Size = new System.Drawing.Size(875, 499);
+            this.dgvInventario.TabIndex = 54;
+            this.dgvInventario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellContentClick);
             // 
-            // Departamento
+            // cmbDepartamentoInventario
             // 
-            this.Departamento.HeaderText = "Departamento";
-            this.Departamento.Name = "Departamento";
-            this.Departamento.ReadOnly = true;
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            // 
-            // UnidadMedida
-            // 
-            this.UnidadMedida.HeaderText = "UnidadMedida";
-            this.UnidadMedida.Name = "UnidadMedida";
-            this.UnidadMedida.ReadOnly = true;
-            // 
-            // Costo
-            // 
-            this.Costo.HeaderText = "Costo";
-            this.Costo.Name = "Costo";
-            this.Costo.ReadOnly = true;
-            // 
-            // PrecioUnitario
-            // 
-            this.PrecioUnitario.HeaderText = "P/U";
-            this.PrecioUnitario.Name = "PrecioUnitario";
-            this.PrecioUnitario.ReadOnly = true;
-            // 
-            // Subtotal
-            // 
-            this.Subtotal.HeaderText = "Subtotal";
-            this.Subtotal.Name = "Subtotal";
-            this.Subtotal.ReadOnly = true;
-            // 
-            // UnidadesVendidas
-            // 
-            this.UnidadesVendidas.HeaderText = "UnidadesVendidas";
-            this.UnidadesVendidas.Name = "UnidadesVendidas";
-            this.UnidadesVendidas.ReadOnly = true;
-            // 
-            // Merma
-            // 
-            this.Merma.HeaderText = "Merma";
-            this.Merma.Name = "Merma";
-            this.Merma.ReadOnly = true;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(26, 69);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(220, 29);
-            this.comboBox2.TabIndex = 61;
+            this.cmbDepartamentoInventario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbDepartamentoInventario.FormattingEnabled = true;
+            this.cmbDepartamentoInventario.Location = new System.Drawing.Point(26, 69);
+            this.cmbDepartamentoInventario.Name = "cmbDepartamentoInventario";
+            this.cmbDepartamentoInventario.Size = new System.Drawing.Size(220, 29);
+            this.cmbDepartamentoInventario.TabIndex = 61;
             // 
             // label2
             // 
@@ -135,85 +79,100 @@ namespace MAD.FormsAdmin
             this.label2.TabIndex = 60;
             this.label2.Text = "Departamento";
             // 
-            // numericUpDown4
+            // numExistencia
             // 
-            this.numericUpDown4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.numericUpDown4.Location = new System.Drawing.Point(297, 69);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(142, 29);
-            this.numericUpDown4.TabIndex = 63;
-            this.numericUpDown4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numExistencia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.numExistencia.Location = new System.Drawing.Point(316, 69);
+            this.numExistencia.Name = "numExistencia";
+            this.numExistencia.Size = new System.Drawing.Size(142, 29);
+            this.numExistencia.TabIndex = 63;
+            this.numExistencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(314, 36);
+            this.label15.Location = new System.Drawing.Point(302, 36);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(104, 30);
+            this.label15.Size = new System.Drawing.Size(179, 30);
             this.label15.TabIndex = 62;
-            this.label15.Text = "Existencia";
+            this.label15.Text = "Existencia mínima";
             // 
-            // checkBox2
+            // ckbAgotados
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkBox2.Location = new System.Drawing.Point(571, 64);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(48, 34);
-            this.checkBox2.TabIndex = 65;
-            this.checkBox2.Text = "Sí";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.ckbAgotados.AutoSize = true;
+            this.ckbAgotados.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ckbAgotados.Location = new System.Drawing.Point(607, 64);
+            this.ckbAgotados.Name = "ckbAgotados";
+            this.ckbAgotados.Size = new System.Drawing.Size(48, 34);
+            this.ckbAgotados.TabIndex = 65;
+            this.ckbAgotados.Text = "Sí";
+            this.ckbAgotados.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(504, 36);
+            this.label4.Location = new System.Drawing.Point(540, 36);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(198, 30);
             this.label4.TabIndex = 64;
             this.label4.Text = "Productos agotados";
             // 
-            // checkBox1
+            // ckbMerma
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkBox1.Location = new System.Drawing.Point(794, 64);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(48, 34);
-            this.checkBox1.TabIndex = 67;
-            this.checkBox1.Text = "Sí";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ckbMerma.AutoSize = true;
+            this.ckbMerma.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ckbMerma.Location = new System.Drawing.Point(820, 64);
+            this.ckbMerma.Name = "ckbMerma";
+            this.ckbMerma.Size = new System.Drawing.Size(48, 34);
+            this.ckbMerma.TabIndex = 67;
+            this.ckbMerma.Text = "Sí";
+            this.ckbMerma.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(777, 36);
+            this.label1.Location = new System.Drawing.Point(803, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 30);
             this.label1.TabIndex = 66;
             this.label1.Text = "Merma";
             // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.FlatAppearance.BorderSize = 0;
+            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltrar.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnFiltrar.Location = new System.Drawing.Point(948, 36);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(130, 66);
+            this.btnFiltrar.TabIndex = 68;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
             // FormInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(970, 682);
-            this.Controls.Add(this.checkBox1);
+            this.ClientSize = new System.Drawing.Size(1205, 682);
+            this.Controls.Add(this.btnFiltrar);
+            this.Controls.Add(this.ckbMerma);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.ckbAgotados);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.numericUpDown4);
+            this.Controls.Add(this.numExistencia);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cmbDepartamentoInventario);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView3);
+            this.Controls.Add(this.dgvInventario);
             this.Name = "FormInventario";
             this.Text = "FormInventario";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            this.Load += new System.EventHandler(this.FormInventario_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numExistencia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,22 +180,15 @@ namespace MAD.FormsAdmin
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Departamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnidadMedida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioUnitario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnidadesVendidas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Merma;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.DataGridView dgvInventario;
+        private System.Windows.Forms.ComboBox cmbDepartamentoInventario;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown numExistencia;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox ckbAgotados;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox ckbMerma;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnFiltrar;
     }
 }

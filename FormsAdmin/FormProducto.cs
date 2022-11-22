@@ -92,7 +92,7 @@ namespace MAD.FormsAdmin
             if (cmbDepartamento.SelectedIndex != -1 && txtCosto.Text != "" && txtPrecioU.Text != "" && txtExistencia.Text != "" &&txtPuntoR.Text != "" &&txtPrecioU.Text != "")
             {
                 dep = cmbDepartamento.SelectedItem.ToString();
-                if(db.InsertarProducto(txtNombre.Text, txtDescripcion.Text, Convert.ToDouble(txtCosto.Text), Convert.ToDouble(txtPrecioU.Text), Convert.ToInt32(txtExistencia.Text), Convert.ToInt32(txtPuntoR.Text), activo, admin, txtUnidadM.Text, dep) == 1)
+                if(db.InsertarProducto(txtNombre.Text, txtDescripcion.Text, Convert.ToDouble(txtCosto.Text), Convert.ToDouble(txtPrecioU.Text), Convert.ToDecimal(txtExistencia.Text), Convert.ToDecimal(txtPuntoR.Text), activo, admin, txtUnidadM.Text, dep) == 1)
                 {
                     txtNombre.Text = "";
                     txtDescripcion.Text = "";
@@ -133,7 +133,7 @@ namespace MAD.FormsAdmin
             if (cmbDepartamento.SelectedIndex != -1 && txtCosto.Text != "" && txtPrecioU.Text != "" && txtExistencia.Text != "" && txtPuntoR.Text != "" && txtPrecioU.Text != "")
             {
                 dep = cmbDepartamento.SelectedItem.ToString();
-                int result = db.EditarProducto(Convert.ToInt32(txtIdProd.Text), txtNombre.Text, txtDescripcion.Text, Convert.ToDouble(txtCosto.Text), Convert.ToDouble(txtPrecioU.Text), Convert.ToInt32(txtExistencia.Text), Convert.ToInt32(txtPuntoR.Text), activo, txtUnidadM.Text, dep);
+                int result = db.EditarProducto(Convert.ToInt32(txtIdProd.Text), txtNombre.Text, txtDescripcion.Text, Convert.ToDouble(txtCosto.Text), Convert.ToDouble(txtPrecioU.Text), Convert.ToDecimal(txtExistencia.Text), Convert.ToDecimal(txtPuntoR.Text), activo, txtUnidadM.Text, dep);
                 if (result == 1)
                 {
                     txtNombre.Text = "";
@@ -209,6 +209,87 @@ namespace MAD.FormsAdmin
             LoadTheme();
         }
 
-   
+        private void dgvProducto1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
+        //Descuentos
+
+        private void dgvProducto2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvProducto1.Rows[e.RowIndex];
+                txtIdDesc.Text = row.Cells["cod_producto"].Value.ToString();
+                var db = new ConexionDB();
+                txtNombre2.Text = row.Cells["nombre"].Value.ToString();
+ 
+               
+                btnCancelarDesc.Visible = true;
+            }
+        }
+
+        private void btnAplicarDesc_Click(object sender, EventArgs e)
+        {
+            if (txtNombre2.Text == "")
+            {
+                MessageBox.Show("Necesitas escoger un producto");
+                return;
+            }
+            var db = new ConexionDB();
+            int estatus = 0;
+            string fechaI = dtpFechaI.Value.ToString("yyyy-MM-dd");
+            string fechaF = dtpFechaF.Value.ToString("yyyy-MM-dd");
+
+            if (DateTime.Now.Date >= dtpFechaI.Value && DateTime.Now.Date <= dtpFechaF.Value)
+                estatus = 1;
+
+            if(db.AñadirDescuento(fechaI,fechaF,Convert.ToInt32(txtIdDesc.Text), Convert.ToInt32(numDescuento.Value), estatus) == 1)
+            {
+                dtpFechaF.Value = DateTime.Now.Date;
+                dtpFechaI.Value = DateTime.Now.Date;
+                numDescuento.Value = 0;
+                txtNombre2.Text = "";
+            }
+
+        }
+
+        private void txtPrecioU_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPuntoR_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtExistencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCosto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

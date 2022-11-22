@@ -47,6 +47,26 @@ namespace MAD
             userProxy = username;
             cajaActual = caja;
 
+
+
+            //Que abra la de ventas de inmediato
+            if (rol.Equals("caja"))
+            {
+                Form childForm = new Forms.FormVentas(userProxy, cajaActual);
+                if (activeForm != null)
+                {
+                    activeForm.Close();
+                }
+                activeForm = childForm;
+                childForm.TopLevel = false;
+                childForm.FormBorderStyle = FormBorderStyle.None;
+                childForm.Dock = DockStyle.Fill;
+                this.panelSeccion.Controls.Add(childForm);
+                this.panelSeccion.Tag = childForm;
+                childForm.BringToFront();
+                childForm.Show();
+                lblTitulo.Text = childForm.Text;
+            }
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -122,12 +142,15 @@ namespace MAD
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
+           
             OpenChildForm(new Forms.FormVentas(userProxy, cajaActual), sender);
+            btnCerrarChildForm.Visible = false;
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.FormReportes(), sender);
+            btnCerrarChildForm.Visible = false;
         }
 
         private void iconButton3_Click(object sender, EventArgs e)
@@ -188,6 +211,7 @@ namespace MAD
             
 
         }
+        
 
         //Funcion que muestra las opciones disponibles dependiendo del rol del usuario
         private void LoadOptions(string rol, int caja) {
@@ -200,6 +224,8 @@ namespace MAD
             }
             else if (rol.Equals("caja"))
             {
+                panelGracias.Visible = true;
+                iconButton2.Visible = false;
                 iconButton3.Visible = false;
                 iconButton4.Visible = false;
                 iconButton5.Visible = false;
@@ -236,7 +262,7 @@ namespace MAD
 
         private void iconButton8_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormsAdmin.FormDevolucion(), sender);
+            OpenChildForm(new FormsAdmin.FormDevolucion(lblUser.Text), sender);
         }
 
         private void iconButton9_Click(object sender, EventArgs e)

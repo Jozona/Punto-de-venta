@@ -36,13 +36,14 @@ namespace MAD
             // 
             this.pdfDocumentViewer1.AutoScroll = true;
             this.pdfDocumentViewer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pdfDocumentViewer1.FormFillEnabled = false;
-            this.pdfDocumentViewer1.Location = new System.Drawing.Point(12, 12);
+            this.pdfDocumentViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pdfDocumentViewer1.FormFillEnabled = true;
+            this.pdfDocumentViewer1.Location = new System.Drawing.Point(0, 0);
             this.pdfDocumentViewer1.MultiPagesThreshold = 60;
             this.pdfDocumentViewer1.Name = "pdfDocumentViewer1";
             this.pdfDocumentViewer1.OnRenderPageExceptionEvent = null;
             this.pdfDocumentViewer1.PageLayoutMode = Spire.PdfViewer.Forms.PageLayoutMode.SinglePageContinuous;
-            this.pdfDocumentViewer1.Size = new System.Drawing.Size(776, 426);
+            this.pdfDocumentViewer1.Size = new System.Drawing.Size(800, 450);
             this.pdfDocumentViewer1.TabIndex = 0;
             this.pdfDocumentViewer1.Text = "pdfDocumentViewer1";
             this.pdfDocumentViewer1.Threshold = 60;
@@ -58,6 +59,7 @@ namespace MAD
             this.Controls.Add(this.pdfDocumentViewer1);
             this.Name = "FormTicket";
             this.Text = "FormTicket";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormTicket_FormClosed);
             this.Load += new System.EventHandler(this.FormTicket_Load);
             this.ResumeLayout(false);
 
